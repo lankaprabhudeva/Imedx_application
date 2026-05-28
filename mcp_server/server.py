@@ -119,4 +119,5 @@ def generate_manual_test_document(
 
 
 if __name__ == "__main__":
-    mcp.run()
+    print("Starting MCP server on http://127.0.0.1:8000")
+    mcp.run(transport="streamable-http")

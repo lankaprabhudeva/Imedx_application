@@ -18,7 +18,8 @@ class BasePage:
         return self.page.locator(locator).inner_text()
 
     def assert_visible(self, locator: str):
-        expect(self.page.locator(locator)).to_be_visible()
+        # Use the first match to avoid strict-mode failures when selectors match multiple elements
+        expect(self.page.locator(locator).first).to_be_visible()
 
     def assert_text(self, locator: str, expected_text: str):
-        expect(self.page.locator(locator)).to_have_text(expected_text)
+        expect(self.page.locator(locator).first).to_have_text(expected_text)

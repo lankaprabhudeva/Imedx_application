@@ -1,9 +1,9 @@
 dev:
-  base_url: "https://san-hcs-dev.imedx.com.au"
+  base_url: "https://hcs-internal.imedx.com.au/"
   browser: "chromium"
   headless: false
 
 qa:
-  base_url: "https://san-hcs-dev.imedx.com.au"
+  base_url: "https://hcs-internal.imedx.com.au/"
   browser: "chromium"
   headless: true

@@ -2,7 +2,7 @@ import pytest
 import json
 from pathlib import Path
 from pages.login_page import LoginPage
-from pages.him_workspace_page import HimWorkspacePage
+from pages.workflow_page import WorkflowPage
 
 
 class TestHimWorkspace:
@@ -24,7 +24,7 @@ class TestHimWorkspace:
         3. Verify HIM workspace loads correctly
         """
         login_page = LoginPage(page)
-        him_page = HimWorkspacePage(page)
+        workflow_page = WorkflowPage(page)
 
         # Step 1: Login
         print("Step 1: Logging in...")
@@ -40,13 +40,13 @@ class TestHimWorkspace:
 
         # Step 2: Navigate to HIM workspace
         print("Step 2: Navigating to HIM workspace...")
-        him_page.navigate_to_him_workspace()
+        workflow_page.navigate_to_him_workspace()
 
         # Step 3: Verify HIM workspace loaded
         print("Step 3: Verifying HIM workspace...")
-        him_page.verify_him_workspace_loaded()
+        workflow_page.verify_him_workspace_loaded()
 
-        workspace_title = him_page.get_workspace_title()
+        workspace_title = workflow_page.get_workspace_title()
         print(f"✓ HIM Workspace loaded successfully. Title: {workspace_title}")
 
     def test_02_verify_him_workspace_ui_elements(self, page, app_settings, test_data):
@@ -54,7 +54,7 @@ class TestHimWorkspace:
         Verify all key UI elements are present in HIM workspace
         """
         login_page = LoginPage(page)
-        him_page = HimWorkspacePage(page)
+        workflow_page = WorkflowPage(page)
 
         # Login first
         login_page.open_login_page(app_settings.base_url)
@@ -64,18 +64,18 @@ class TestHimWorkspace:
         page.wait_for_timeout(3000)
 
         # Navigate to HIM workspace
-        him_page.navigate_to_him_workspace()
+        workflow_page.navigate_to_him_workspace()
 
         # Verify UI elements
         print("Verifying HIM workspace UI elements...")
-        him_page.verify_ui_elements_present()
+        workflow_page.verify_ui_elements_present()
 
     def test_03_verify_him_workspace_functionality(self, page, app_settings, test_data):
         """
         Verify basic functionality of HIM workspace tabs and navigation
         """
         login_page = LoginPage(page)
-        him_page = HimWorkspacePage(page)
+        workflow_page = WorkflowPage(page)
 
         # Login and navigate to HIM workspace
         login_page.open_login_page(app_settings.base_url)
@@ -83,18 +83,18 @@ class TestHimWorkspace:
         valid_user = test_data["valid_user"]
         login_page.login(valid_user["username"], valid_user["password"])
         page.wait_for_timeout(3000)
-        him_page.navigate_to_him_workspace()
+        workflow_page.navigate_to_him_workspace()
 
         # Verify workspace functionality
         print("Verifying HIM workspace functionality...")
-        him_page.verify_workspace_functionality()
+        workflow_page.verify_workspace_functionality()
 
     def test_04_him_workspace_page_structure(self, page, app_settings, test_data):
         """
         Verify the overall page structure and layout of HIM workspace
         """
         login_page = LoginPage(page)
-        him_page = HimWorkspacePage(page)
+        workflow_page = WorkflowPage(page)
 
         # Login and navigate
         login_page.open_login_page(app_settings.base_url)
@@ -102,7 +102,7 @@ class TestHimWorkspace:
         valid_user = test_data["valid_user"]
         login_page.login(valid_user["username"], valid_user["password"])
         page.wait_for_timeout(3000)
-        him_page.navigate_to_him_workspace()
+        workflow_page.navigate_to_him_workspace()
 
         # Check page structure
         print("Checking HIM workspace page structure...")
@@ -126,7 +126,7 @@ class TestHimWorkspace:
         Verify HIM workspace elements are properly responsive and interactive
         """
         login_page = LoginPage(page)
-        him_page = HimWorkspacePage(page)
+        workflow_page = WorkflowPage(page)
 
         # Login and navigate
         login_page.open_login_page(app_settings.base_url)
@@ -134,13 +134,13 @@ class TestHimWorkspace:
         valid_user = test_data["valid_user"]
         login_page.login(valid_user["username"], valid_user["password"])
         page.wait_for_timeout(3000)
-        him_page.navigate_to_him_workspace()
+        workflow_page.navigate_to_him_workspace()
 
         print("Checking responsive elements...")
 
         # Check if key interactive elements are clickable
         try:
-            user_menu = page.locator(him_page.USER_MENU).first
+            user_menu = page.locator(workflow_page.USER_MENU).first
             if user_menu.is_visible():
                 # Don't actually click, just check if it's interactive
                 print("✓ User menu is visible and interactive")
@@ -151,7 +151,7 @@ class TestHimWorkspace:
 
         # Check patient search if present
         try:
-            patient_search = page.locator(him_page.PATIENT_SEARCH).first
+            patient_search = page.locator(workflow_page.PATIENT_SEARCH).first
             if patient_search.is_visible():
                 print("✓ Patient search is visible")
                 # Check if it's a proper input field
@@ -170,7 +170,7 @@ class TestHimWorkspace:
         Complete workflow: Login -> HIM Workspace -> UI Validation -> Logout
         """
         login_page = LoginPage(page)
-        him_page = HimWorkspacePage(page)
+        workflow_page = WorkflowPage(page)
 
         print("=== HIM WORKFLOW VALIDATION ===")
 
@@ -184,12 +184,12 @@ class TestHimWorkspace:
 
         # 2. Navigate to HIM
         print("2. Navigating to HIM workspace...")
-        him_page.navigate_to_him_workspace()
+        workflow_page.navigate_to_him_workspace()
 
         # 3. Validate UI
         print("3. Validating UI elements...")
-        him_page.verify_ui_elements_present()
-        him_page.verify_workspace_functionality()
+        workflow_page.verify_ui_elements_present()
+        workflow_page.verify_workspace_functionality()
 
         # 4. Verify page state
         print("4. Verifying page state...")
@@ -201,7 +201,7 @@ class TestHimWorkspace:
         # 5. Attempt logout (if possible)
         print("5. Attempting logout...")
         try:
-            him_page.logout_from_workspace()
+            workflow_page.logout_from_workspace()
             print("✓ Logout successful")
         except:
             print("⚠ Logout not performed (may not be available)")

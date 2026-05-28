@@ -32,8 +32,10 @@ pytest tests/generated/
 ## Run MCP Server
 
 ```bash
-python mcp_server/server.py
+python -m mcp_server.server
 ```
+
+This starts the MCP server on `http://127.0.0.1:8000`.
 
 ## MCP Tools
 

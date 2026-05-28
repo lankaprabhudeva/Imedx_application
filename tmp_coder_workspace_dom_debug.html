@@ -1,0 +1,554 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><style type="text/css">:root, :host {
+  --fa-font-solid: normal 900 1em/1 "Font Awesome 6 Free";
+  --fa-font-regular: normal 400 1em/1 "Font Awesome 6 Free";
+  --fa-font-light: normal 300 1em/1 "Font Awesome 6 Pro";
+  --fa-font-thin: normal 100 1em/1 "Font Awesome 6 Pro";
+  --fa-font-duotone: normal 900 1em/1 "Font Awesome 6 Duotone";
+  --fa-font-duotone-regular: normal 400 1em/1 "Font Awesome 6 Duotone";
+  --fa-font-duotone-light: normal 300 1em/1 "Font Awesome 6 Duotone";
+  --fa-font-duotone-thin: normal 100 1em/1 "Font Awesome 6 Duotone";
+  --fa-font-brands: normal 400 1em/1 "Font Awesome 6 Brands";
+  --fa-font-sharp-solid: normal 900 1em/1 "Font Awesome 6 Sharp";
+  --fa-font-sharp-regular: normal 400 1em/1 "Font Awesome 6 Sharp";
+  --fa-font-sharp-light: normal 300 1em/1 "Font Awesome 6 Sharp";
+  --fa-font-sharp-thin: normal 100 1em/1 "Font Awesome 6 Sharp";
+  --fa-font-sharp-duotone-solid: normal 900 1em/1 "Font Awesome 6 Sharp Duotone";
+  --fa-font-sharp-duotone-regular: normal 400 1em/1 "Font Awesome 6 Sharp Duotone";
+  --fa-font-sharp-duotone-light: normal 300 1em/1 "Font Awesome 6 Sharp Duotone";
+  --fa-font-sharp-duotone-thin: normal 100 1em/1 "Font Awesome 6 Sharp Duotone";
+}
+
+svg:not(:root).svg-inline--fa, svg:not(:host).svg-inline--fa {
+  overflow: visible;
+  box-sizing: content-box;
+}
+
+.svg-inline--fa {
+  display: var(--fa-display, inline-block);
+  height: 1em;
+  overflow: visible;
+  vertical-align: -0.125em;
+}
+.svg-inline--fa.fa-2xs {
+  vertical-align: 0.1em;
+}
+.svg-inline--fa.fa-xs {
+  vertical-align: 0em;
+}
+.svg-inline--fa.fa-sm {
+  vertical-align: -0.0714285705em;
+}
+.svg-inline--fa.fa-lg {
+  vertical-align: -0.2em;
+}
+.svg-inline--fa.fa-xl {
+  vertical-align: -0.25em;
+}
+.svg-inline--fa.fa-2xl {
+  vertical-align: -0.3125em;
+}
+.svg-inline--fa.fa-pull-left {
+  margin-right: var(--fa-pull-margin, 0.3em);
+  width: auto;
+}
+.svg-inline--fa.fa-pull-right {
+  margin-left: var(--fa-pull-margin, 0.3em);
+  width: auto;
+}
+.svg-inline--fa.fa-li {
+  width: var(--fa-li-width, 2em);
+  top: 0.25em;
+}
+.svg-inline--fa.fa-fw {
+  width: var(--fa-fw-width, 1.25em);
+}
+
+.fa-layers svg.svg-inline--fa {
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.fa-layers-counter, .fa-layers-text {
+  display: inline-block;
+  position: absolute;
+  text-align: center;
+}
+
+.fa-layers {
+  display: inline-block;
+  height: 1em;
+  position: relative;
+  text-align: center;
+  vertical-align: -0.125em;
+  width: 1em;
+}
+.fa-layers svg.svg-inline--fa {
+  transform-origin: center center;
+}
+
+.fa-layers-text {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transform-origin: center center;
+}
+
+.fa-layers-counter {
+  background-color: var(--fa-counter-background-color, #ff253a);
+  border-radius: var(--fa-counter-border-radius, 1em);
+  box-sizing: border-box;
+  color: var(--fa-inverse, #fff);
+  line-height: var(--fa-counter-line-height, 1);
+  max-width: var(--fa-counter-max-width, 5em);
+  min-width: var(--fa-counter-min-width, 1.5em);
+  overflow: hidden;
+  padding: var(--fa-counter-padding, 0.25em 0.5em);
+  right: var(--fa-right, 0);
+  text-overflow: ellipsis;
+  top: var(--fa-top, 0);
+  transform: scale(var(--fa-counter-scale, 0.25));
+  transform-origin: top right;
+}
+
+.fa-layers-bottom-right {
+  bottom: var(--fa-bottom, 0);
+  right: var(--fa-right, 0);
+  top: auto;
+  transform: scale(var(--fa-layers-scale, 0.25));
+  transform-origin: bottom right;
+}
+
+.fa-layers-bottom-left {
+  bottom: var(--fa-bottom, 0);
+  left: var(--fa-left, 0);
+  right: auto;
+  top: auto;
+  transform: scale(var(--fa-layers-scale, 0.25));
+  transform-origin: bottom left;
+}
+
+.fa-layers-top-right {
+  top: var(--fa-top, 0);
+  right: var(--fa-right, 0);
+  transform: scale(var(--fa-layers-scale, 0.25));
+  transform-origin: top right;
+}
+
+.fa-layers-top-left {
+  left: var(--fa-left, 0);
+  right: auto;
+  top: var(--fa-top, 0);
+  transform: scale(var(--fa-layers-scale, 0.25));
+  transform-origin: top left;
+}
+
+.fa-1x {
+  font-size: 1em;
+}
+
+.fa-2x {
+  font-size: 2em;
+}
+
+.fa-3x {
+  font-size: 3em;
+}
+
+.fa-4x {
+  font-size: 4em;
+}
+
+.fa-5x {
+  font-size: 5em;
+}
+
+.fa-6x {
+  font-size: 6em;
+}
+
+.fa-7x {
+  font-size: 7em;
+}
+
+.fa-8x {
+  font-size: 8em;
+}
+
+.fa-9x {
+  font-size: 9em;
+}
+
+.fa-10x {
+  font-size: 10em;
+}
+
+.fa-2xs {
+  font-size: 0.625em;
+  line-height: 0.1em;
+  vertical-align: 0.225em;
+}
+
+.fa-xs {
+  font-size: 0.75em;
+  line-height: 0.0833333337em;
+  vertical-align: 0.125em;
+}
+
+.fa-sm {
+  font-size: 0.875em;
+  line-height: 0.0714285718em;
+  vertical-align: 0.0535714295em;
+}
+
+.fa-lg {
+  font-size: 1.25em;
+  line-height: 0.05em;
+  vertical-align: -0.075em;
+}
+
+.fa-xl {
+  font-size: 1.5em;
+  line-height: 0.0416666682em;
+  vertical-align: -0.125em;
+}
+
+.fa-2xl {
+  font-size: 2em;
+  line-height: 0.03125em;
+  vertical-align: -0.1875em;
+}
+
+.fa-fw {
+  text-align: center;
+  width: 1.25em;
+}
+
+.fa-ul {
+  list-style-type: none;
+  margin-left: var(--fa-li-margin, 2.5em);
+  padding-left: 0;
+}
+.fa-ul > li {
+  position: relative;
+}
+
+.fa-li {
+  left: calc(-1 * var(--fa-li-width, 2em));
+  position: absolute;
+  text-align: center;
+  width: var(--fa-li-width, 2em);
+  line-height: inherit;
+}
+
+.fa-border {
+  border-color: var(--fa-border-color, #eee);
+  border-radius: var(--fa-border-radius, 0.1em);
+  border-style: var(--fa-border-style, solid);
+  border-width: var(--fa-border-width, 0.08em);
+  padding: var(--fa-border-padding, 0.2em 0.25em 0.15em);
+}
+
+.fa-pull-left {
+  float: left;
+  margin-right: var(--fa-pull-margin, 0.3em);
+}
+
+.fa-pull-right {
+  float: right;
+  margin-left: var(--fa-pull-margin, 0.3em);
+}
+
+.fa-beat {
+  animation-name: fa-beat;
+  animation-delay: var(--fa-animation-delay, 0s);
+  animation-direction: var(--fa-animation-direction, normal);
+  animation-duration: var(--fa-animation-duration, 1s);
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, ease-in-out);
+}
+
+.fa-bounce {
+  animation-name: fa-bounce;
+  animation-delay: var(--fa-animation-delay, 0s);
+  animation-direction: var(--fa-animation-direction, normal);
+  animation-duration: var(--fa-animation-duration, 1s);
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.28, 0.84, 0.42, 1));
+}
+
+.fa-fade {
+  animation-name: fa-fade;
+  animation-delay: var(--fa-animation-delay, 0s);
+  animation-direction: var(--fa-animation-direction, normal);
+  animation-duration: var(--fa-animation-duration, 1s);
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1));
+}
+
+.fa-beat-fade {
+  animation-name: fa-beat-fade;
+  animation-delay: var(--fa-animation-delay, 0s);
+  animation-direction: var(--fa-animation-direction, normal);
+  animation-duration: var(--fa-animation-duration, 1s);
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1));
+}
+
+.fa-flip {
+  animation-name: fa-flip;
+  animation-delay: var(--fa-animation-delay, 0s);
+  animation-direction: var(--fa-animation-direction, normal);
+  animation-duration: var(--fa-animation-duration, 1s);
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, ease-in-out);
+}
+
+.fa-shake {
+  animation-name: fa-shake;
+  animation-delay: var(--fa-animation-delay, 0s);
+  animation-direction: var(--fa-animation-direction, normal);
+  animation-duration: var(--fa-animation-duration, 1s);
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, linear);
+}
+
+.fa-spin {
+  animation-name: fa-spin;
+  animation-delay: var(--fa-animation-delay, 0s);
+  animation-direction: var(--fa-animation-direction, normal);
+  animation-duration: var(--fa-animation-duration, 2s);
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, linear);
+}
+
+.fa-spin-reverse {
+  --fa-animation-direction: reverse;
+}
+
+.fa-pulse,
+.fa-spin-pulse {
+  animation-name: fa-spin;
+  animation-direction: var(--fa-animation-direction, normal);
+  animation-duration: var(--fa-animation-duration, 1s);
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, steps(8));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fa-beat,
+.fa-bounce,
+.fa-fade,
+.fa-beat-fade,
+.fa-flip,
+.fa-pulse,
+.fa-shake,
+.fa-spin,
+.fa-spin-pulse {
+    animation-delay: -1ms;
+    animation-duration: 1ms;
+    animation-iteration-count: 1;
+    transition-delay: 0s;
+    transition-duration: 0s;
+  }
+}
+@keyframes fa-beat {
+  0%, 90% {
+    transform: scale(1);
+  }
+  45% {
+    transform: scale(var(--fa-beat-scale, 1.25));
+  }
+}
+@keyframes fa-bounce {
+  0% {
+    transform: scale(1, 1) translateY(0);
+  }
+  10% {
+    transform: scale(var(--fa-bounce-start-scale-x, 1.1), var(--fa-bounce-start-scale-y, 0.9)) translateY(0);
+  }
+  30% {
+    transform: scale(var(--fa-bounce-jump-scale-x, 0.9), var(--fa-bounce-jump-scale-y, 1.1)) translateY(var(--fa-bounce-height, -0.5em));
+  }
+  50% {
+    transform: scale(var(--fa-bounce-land-scale-x, 1.05), var(--fa-bounce-land-scale-y, 0.95)) translateY(0);
+  }
+  57% {
+    transform: scale(1, 1) translateY(var(--fa-bounce-rebound, -0.125em));
+  }
+  64% {
+    transform: scale(1, 1) translateY(0);
+  }
+  100% {
+    transform: scale(1, 1) translateY(0);
+  }
+}
+@keyframes fa-fade {
+  50% {
+    opacity: var(--fa-fade-opacity, 0.4);
+  }
+}
+@keyframes fa-beat-fade {
+  0%, 100% {
+    opacity: var(--fa-beat-fade-opacity, 0.4);
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(var(--fa-beat-fade-scale, 1.125));
+  }
+}
+@keyframes fa-flip {
+  50% {
+    transform: rotate3d(var(--fa-flip-x, 0), var(--fa-flip-y, 1), var(--fa-flip-z, 0), var(--fa-flip-angle, -180deg));
+  }
+}
+@keyframes fa-shake {
+  0% {
+    transform: rotate(-15deg);
+  }
+  4% {
+    transform: rotate(15deg);
+  }
+  8%, 24% {
+    transform: rotate(-18deg);
+  }
+  12%, 28% {
+    transform: rotate(18deg);
+  }
+  16% {
+    transform: rotate(-22deg);
+  }
+  20% {
+    transform: rotate(22deg);
+  }
+  32% {
+    transform: rotate(-12deg);
+  }
+  36% {
+    transform: rotate(12deg);
+  }
+  40%, 100% {
+    transform: rotate(0deg);
+  }
+}
+@keyframes fa-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.fa-rotate-90 {
+  transform: rotate(90deg);
+}
+
+.fa-rotate-180 {
+  transform: rotate(180deg);
+}
+
+.fa-rotate-270 {
+  transform: rotate(270deg);
+}
+
+.fa-flip-horizontal {
+  transform: scale(-1, 1);
+}
+
+.fa-flip-vertical {
+  transform: scale(1, -1);
+}
+
+.fa-flip-both,
+.fa-flip-horizontal.fa-flip-vertical {
+  transform: scale(-1, -1);
+}
+
+.fa-rotate-by {
+  transform: rotate(var(--fa-rotate-angle, 0));
+}
+
+.fa-stack {
+  display: inline-block;
+  vertical-align: middle;
+  height: 2em;
+  position: relative;
+  width: 2.5em;
+}
+
+.fa-stack-1x,
+.fa-stack-2x {
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: var(--fa-stack-z-index, auto);
+}
+
+.svg-inline--fa.fa-stack-1x {
+  height: 1em;
+  width: 1.25em;
+}
+.svg-inline--fa.fa-stack-2x {
+  height: 2em;
+  width: 2.5em;
+}
+
+.fa-inverse {
+  color: var(--fa-inverse, #fff);
+}
+
+.sr-only,
+.fa-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.sr-only-focusable:not(:focus),
+.fa-sr-only-focusable:not(:focus) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.svg-inline--fa .fa-primary {
+  fill: var(--fa-primary-color, currentColor);
+  opacity: var(--fa-primary-opacity, 1);
+}
+
+.svg-inline--fa .fa-secondary {
+  fill: var(--fa-secondary-color, currentColor);
+  opacity: var(--fa-secondary-opacity, 0.4);
+}
+
+.svg-inline--fa.fa-swap-opacity .fa-primary {
+  opacity: var(--fa-secondary-opacity, 0.4);
+}
+
+.svg-inline--fa.fa-swap-opacity .fa-secondary {
+  opacity: var(--fa-primary-opacity, 1);
+}
+
+.svg-inline--fa mask .fa-primary,
+.svg-inline--fa mask .fa-secondary {
+  fill: black;
+}</style><link rel="icon" href="/favicon.png"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#000000"><meta name="description" content="Web site created using create-react-app"><link rel="apple-touch-icon" href="/logo192.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""><link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&amp;display=swap" rel="stylesheet"><link rel="manifest" href="/manifest.json"><title>San-Hc-Internal</title><script defer="defer" src="/static/js/main.6c5cc755.js"></script><link href="/static/css/main.447e15b9.css" rel="stylesheet"><style id="_goober"> .go1475592160{height:0;}.go1671063245{height:auto;}.go1888806478{display:flex;flex-wrap:wrap;flex-grow:1;}@media (min-width:600px){.go1888806478{flex-grow:initial;min-width:288px;}}.go167266335{background-color:#313131;font-size:0.875rem;line-height:1.43;letter-spacing:0.01071em;color:#fff;align-items:center;padding:6px 16px;border-radius:4px;box-shadow:0px 3px 5px -1px rgba(0,0,0,0.2),0px 6px 10px 0px rgba(0,0,0,0.14),0px 1px 18px 0px rgba(0,0,0,0.12);}.go3162094071{padding-left:20px;}.go3844575157{background-color:#313131;}.go1725278324{background-color:#43a047;}.go3651055292{background-color:#d32f2f;}.go4215275574{background-color:#ff9800;}.go1930647212{background-color:#2196f3;}.go946087465{display:flex;align-items:center;padding:8px 0;}.go703367398{display:flex;align-items:center;margin-left:auto;padding-left:16px;margin-right:-8px;}</style><style data-emotion="css" data-s=""></style></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root" class="h-100"><div><div class="Toastify"></div><div class="main-wrapper"><div class="transition-all duration-100" style="width: 100px;"><div class="main-sidebar position-relative"><div><div class="sidebar-wrapper-notification"><img class="p-3" src="/static/media/sidebarlogo.c8dec9dd0e62450560c7aeb084f5ac91.svg" alt="sidebarlogo"></div><div class="sidebar-navigation-container"><ul class="sidebar-companion-toggle-btn" style="padding-left: 32px;"><li><div style="cursor: pointer;"><div class="d-flex align-items-center"><img class="nav-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAACdeAAAnXgHPwViOAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAH5JREFUeJzt2LENwzAMBMB3kKW8RybJIF7La6UPwMZAxMC8KwkWLxYqPgEAABhoK+bvJPvKIAucSY7v4bNY3pO8fhrnTzy6A3RzgO4A3ao/4FyaYo07vgkAgMv0AcWyPmAKB+gO0E0fAADAUPqAYlkfMIUDdAfopg8AAACY6ANEcAx/oLjKiwAAAABJRU5ErkJggg==" alt="imgsrc" style="width: 28px; height: 28px;" aria-label="Code Workflow"></div></div></li><li><div style="cursor: pointer;"><div class="d-flex align-items-center"><img class="nav-icon" src="data:image/png;base64,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" alt="imgsrc" aria-label="Code Accelerate" style="width: 28px; height: 28px;"></div></div></li><li><div style="cursor: pointer;"><div class="d-flex align-items-center"><img class="nav-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAB2AAAAdgB+lymcgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAIuSURBVHic7du9axRBGIDxX8RCMCYo2lhYGlFQCAiilZUi1jaCiB9/gDbWFoKVjY2VlY1YWIimEIJgEbARYvxAEREUtbOQM36exYxEzO3dmbvb9w7ngWU2t9nhmSdz2WrpzAacxzwaaI7g8RG7uljrMvbiwxAsoB/H8VYLXN1m8VO4g0ks4Ia0E95je7tqQ8Y1HFrJjbelcvcwLi26ibf9MquJm9rsgFUVN23GQXzHaXwahNkwUBVgOl97ihf16dRPVYD1eXxdl0gUVQHG8tisSySKqgD/DSVAtEA0JUC0QDQlQLRANCVAtEA0JUC0QDQlQLRANCVAtEA0JUC0QDQlQLRANCVAtEA0JUC0QDQlQLRANCVAtEA0JUC0QDQlQLRANCVAtEA0JUC0QDQlQLRANCVAtEA0JUC0QDQlQLRANO1emPj796bz+TjODUZnIGxtd7FTgDGcxEVszJ9N5J9Hja+tPuwU4AAO5/NneIDFPkoNgp3Yk88bmMUT3PqXSY5ZetnoM472UXCQrMMbyXsGm1Y60Z8BTvVFrR7OSs4LWNPLRL8DvDNaT4pZyftEtzdULe5HHh/hZ49SdbIlj/Pd3lAV4GUeJ3vSqZ9GHid6nWittAu+Wao6ClyVvgKX+zHZTJ7srh7/odTIPsn5C/Z3c8NYm2tTuC89Sh7iAuakx+IwcwVHpAiXcB3PrdB7B16Jf/G512MRu1stsNMj7jG24Yy0C4b9r1/ForQjlvEL4TjeX97emDYAAAAASUVORK5CYII=" alt="imgsrc" aria-label="Code Assist" style="width: 28px; height: 28px;"></div></div></li><li><div style="cursor: pointer;"><div class="d-flex align-items-center"><img class="nav-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAACdeAAAnXgHPwViOAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAbFJREFUeJztm01Kw1AURo/VLdhRO7RD41BBXUQhC7ELqfuo4CYU7NSJLY4d6RqCDmpoGtOfvJ98kdwDgVDy3jv56CPc2wYMwzDi0AeWwLfnsQBOG3YPwhj/m8+PcSzJk1gTA8eF8xfgo+b4AXBVMVdQYgZQ5B54qDkmZR1ANHqxF2g7FoBaQI0FoBZQYwGoBdRYAGoBNRaAWkCNBaAWUNP5AKrK4T5wjX8Nfuk5PvRcGfAMfO67MEQbq3ykDsJpBI/FIQuHXjQDzh0CSH7HhvbZ4GhLAABzYOogXuYdeHUcmwCjAA4T1tuo6p43yJOaBVi4LczY8g3o/FPAAlALqLEA1AJqLAC1gBoLQC2gxgJQC6jZ9fP4ELcytoxPMXQBnAVwGNa5OEY5nDhIN1IOV22BpYPsLnq4lbQjwm/RPw2Rqi1wC9wQpiU28ZwjZ8qqP+FDBjyVP6wK4At49FwsNHPq/8XmIDr/FLAA1AJqLAC1gBoLQC2gxgJQC6ixANQCaiwAtYCazgfQ1Bsjd9Rvrw1iiJSJGUBWOPd99SXbf0n76LNqQfn28N74p6/NGYbRfn4Ai2bVoQAneH4AAAAASUVORK5CYII=" alt="imgsrc" aria-label="Code Enhance" style="width: 28px; height: 28px;"></div></div></li><li><div style="cursor: pointer;"><div class="d-flex align-items-center"><img class="nav-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAxZJREFUeJzt2suLHFUYxuFnmvQYFW9EdFCEbBwRL2uT4AURDJiFqEEIoosQQQ2oAS8bI9m50D/AlSAqKN5AXIkSEF1IViokUXCRLBKDqJigpGecdvGdpjrJdCZDk/rS7flB0XVOna5+36+qT52m3xnLM4dt2IJ5XIPuiLEXKgs4hoP4HO/i15Xe1MUenEB/yrYTeBVrhg3PDO1fiY9wb2n/iHfwbanc4krVu8BYI+7kDXgMt5b+L/EI/hwe3C0H+vgb29FpS2kLdLAD/wiPXzjtTtijMb+xbXUtskl47OOVQeec5ju/PUdXq+wQXo+Lyd2u0vGD6brtR9ER81sfz3bEo46Y8JayVLXIEt4r+1vgsKjGXVmKErhHeD4EvdKYTxTUNjcJz72OZoU3ac/5cVgor93/w6R3VmoBsgVkUwuQLSCbWoBsAdnUAmQLyKYWIFtANrUA2QKyqQXIFpBNLUC2gGxqAbIFZFMLkC0gm1qAbAHZ1AJkC8imFkD8NwizmUJaZuC118HR0phLEpPBdeX1SAcHSuPOJDEZDLzuh53ir+KDTgsOTSld/Cw8PwXr8EfpeC5PV2sMIkG/46pB5wuls4f7c3S1wmZNIOT54QMdfFoOLOBF0/VUuAgvC299fKyERIeTopfgbTxc2ofwvkiKHtWkKgb8JKJm47AO68c8xyi64sm2CY/ihtL/IZ4QecEzmMEzImS8Uvb2uzHEXY3XNcnNNrZjeNqpF/3UxhCX40E8gJtxrSZLtBYXi6zdbas0fpmYhHaVz4C/8O8qz3MuLIiM836RFv/E+Hcs4sr18dYq3jOLJ3FEc0UO4HETuBzfKwzsPIexHWzFLxrjh0UxJnLNMSNi5n0RQz/buK1icTUw/hteEl+hiWVemFnEpSPG3Id9GuPH8RquaEPg+WabMPX9MsfuwFca4yfxpphAp4Y3nDkB3oIPNMZ7wvj1ratrgb2aCXC9MLpY+pZEIW5M0nbeGZ4Av9YsK/v4DLfnSWuHQcJ6ePsGd2eKapPNGuP7TPevxmWZxW48ZPQSulKpVCqVCeI/Uuf9fMADA0MAAAAASUVORK5CYII=" alt="imgsrc" aria-label="Codie" style="width: 28px; height: 28px;"></div></div></li><li><div style="cursor: pointer;"><div class="d-flex align-items-center"><img class="nav-icon" src="data:image/png;base64,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" alt="imgsrc" aria-label="Settings" style="width: 28px; height: 28px;"></div></div></li></ul><div class="user-details-container position-absolute bottom-0 w-100" style="justify-content: center;"><div><div style="cursor: pointer;"><span><img src="data:image/png;base64,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" alt="admin-icon" class="admin-icon" style="width: 28px; height: 28px;" aria-label="Admin"></span><a class="" href="/admin"></a></div></div><div style="display: flex; align-items: center; gap: 12px;"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAABOvAAATrwFj5o7DAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAApZJREFUWIXF10vITlsYB/Cf73LkloOBS2RAmFGUwok6x7U+Gem4DJwBExMl14zEgDoZMGKsTifKQBJKRkqdSym3I0KiON/A/fJ5P4Nnbfa3vfu96H15arXa7/rv5//f61nrv9bLd45BTeLHYRMWYzJe4gZO4A98aKm6QmzEC/SXtKuY1i7yLTmiE1iGSZghZuS/NPYUU1tNPhN9qGBDCWYoTicRVzRf2prxZ0p8qA5uOB4k7IpWkf8g6v4B4xvA70gCjjZK0FFnfAKG4T4eNZDvcuqnt0pAV+r7GsyX4bpqopoQ8BDvxZ7/sYF8s1J/p1EBjcQ5UdftdXCdwgv6sbaVAn5OSV/jpxLMIBxJuNti8bY0suRvsFeYEFHCBTifG5/XanJieg8JM8oc8Tne5Z6f4pd2kOdjrjh0ehNpBdexD2MSpgujcq1tMRzdueeJOIVXBh5ST7BVi+25GEPETPSLbdub2rOckF/bKWBtIvkbowtjPTgrTs6mYzAWCo8/iX/wWGzJhTnc/iRgd7ME1SyzA0uxBisxsgrmpYG3n2wtvC/hmYjDOIYzZWK68RuuGbiI/hU+sB6zxalYtPCDCbutJPfyNP5WfNQX0YlLOdK72IUpZWrrCOg2cCuOwu8J8w6riwnmp8HHWKeJ06yKgI70AWV3x6wtkyPK6vwXjjdJXox+3FJ97WTeURH+UPc4/loBS8V2zNpYUeJu/I854mPbIqBa9GBVIl8strNvKeCC8IpFeXI+r4FK6ju/kuBV6oeWjD/DnloJJvt89+9toN0XdcyiR9T+nrgPZFtvPHaKq13de8Jmtf965VsfluTe7cDFGvhKAf8pikdkF0bUUyos90XhtyFimleIGSVM5yYOqGHB3zU+Aj9fwr+dPAiqAAAAAElFTkSuQmCC" alt="logout" aria-label="Logout" class="" style="height: 28px;"></div></div></div></div></div></div><div class="right-side-section" style="width: 100%;"><nav aria-label="breadcrumb" class="breadcrumb-wrapper"><ol class="breadcrumb d-flex align-items-center"><a class="breadcrumb-item" href="/">Home</a><span class="mx-2">&gt;</span><a class="breadcrumb-item" href="/Code-Workflow" style="cursor: pointer;">Code Workflow</a><span class="mx-2">&gt;</span><a class="breadcrumb-item" href="/Coder-Workspace" style="cursor: pointer;">Coder Workspace</a></ol><div class="d-flex gap-2 align-items-center"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAA7AAAAOwBeShxvQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAODSURBVFiFndfLa11FHAfwT26DNbXGWJSmvrNIRcVWbeLCbGzqzoVGrI//QS0o9dGF4KtibVERiqjdqHsX4mNlUZSCdhFRUfDRSJsWbCtqEkms5rr4zXFObu895yZfGM45M7/HzG9+r9Oje/TjdoxjM67CQFr7HVOYxMd4HzPLkF2JjTiAOTS7HHN4E8N1wnsq1vrwDHagN8018SUO4gSOJxkbcAm2YqQk9wxexpOYrz9rxjC+lk90CjuTkjpcikdxusR/KG2yK9yIXxPjv9iDC7rf+/8YwF4sJllHsamOabikfAZ3rkBxKyaSrGITg50I+2Szz2BLhdAGxvBAGrekuU4YKW3iEFa3I9orm73q5COW+kcxvsJNFXx3ydfxVOviRuGxTXHnnbAFsyWlJ9MovmdrNrFPtvCSqzgge3snh1uFbxLdNLaV1m4TIdkU1lnVQcaFcnTsLyb75SSzs2L32xLNIm5tsz4uW2K8Qs5jsrXWwv0lwVVxvivRHamgmUo0uypoLpN94d5GabdfCDN2wnnpeaqC5mQLbTscw+H0Pt4QhQU+qWAin/xanN9mvR/Xpfefa2QVujY3MJQ+qk5PVLgFrBH5vRz3DbwicskCPqiRNZ2eQxJDE3fXMMFu2dE+E4VqBz4vzT/XhZx7Eu18eQPbu2DsxTvOTkLFeEuunN1sYI6cSB7sgrHABD6SS/KHuGMZ/A8lncd6hcNcJMKjW7ybxkpxeXoe7RU5/GbRTNShB9eISFjXsnYa3+L7LuQUug7DfXIi6tQ09IkMNqW+HfsRD+tQ8USyKxLRdiKmi1T8eBuGG/BDi5I5/IKf0pjCXy003wlLteKJtP6nCGlEA9kUZiwXo9FE2BTVcr/omNrV/oYo1W/gn8Tzm6Vd0ECaa+K1MvMw/k4L+9LcOpEwiuo32kZpJ4zJndURkSXhpTS3gCtbmfbIvjCBV2VzX78M5QVGRaJp4gVLG5Ld7RjOFe1SU/xoFHdaVdnq8Kx833+k90mc04lhg2gcC0eaF03ESrFevtriKs8yfSs2tWzibZGolos1eFF2yOO6aMsLDMrXUUTH87rLlutFZ3WixD+JK9oRV/2arRb3/4jcYCyKzHlQePd0mrsYV4uMOib3hGeEFZ4Wnr8iDIr4L3fDdWMWr8u9RkdUWaAVa8Xv+VaRHYdEYukRbdq0+HH9FO9JpbYO/wGTBDFD4SmIiQAAAABJRU5ErkJggg==" alt="profile" style="height: 24px;"><span style="margin-right: 125px; font-size: 14px; font-weight: 500;">sai@gmail.com</span></div></nav><div class="contents-wrapper-div"></div><div style="height: 100%; margin-top: 25px; padding: 7px; width: 100%;"><div class="workflow-coder-container coder-screen"><div lg="3" sm="12" xs="12" md="12" class="left-coder-workflow-card"><div class="left-coder-workflow-card-header"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAAMCAYAAAC5tzfZAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAACpSURBVHgBldExDsIgFAbg94CXGCcP4NDBA3gFNseOjhxBb2Pi0t2FybVXYHTEGzA2QYu0cagJpfIvPPLy5SeBQyKHo6q2uz3Yh+lSe5YCrGftWvAGZiJSAAMCveg0hzAJPEmtLzaLSsCIJqAKAAYDuBwIyM5i1YHzhO5bO5xPWMj4vLpWG0+8jWNsY/J+u5pFVApxevkX/nyu1o0j/5ZxtAC9gpIMjbn9B6VeSnPy125iAAAAAElFTkSuQmCC" class="left-coder-workflow-card-icon"><p class="left-coder-workflow-card-text">Back to Workflow</p></div><div class="left-coder-workflow-queues-card"><p class="left-coder-workflow-queues-card-header">Queues</p><div class="coder-workflow-queues-container-queues"><div class="left-coder-workflow-queues-card-top"><p class="left-coder-workflow-queues-card-icon"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAARCAYAAAACCvahAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGjSURBVHgBpVK9TgJBEJ7ZPVEr6S3ERC1ovHuDK9WYiFETO89oLzwBtZXY2SDQGY3xKPzp1M4ObIyFifcIVMQIu+Ps8RO4AwudZmd355v5vpkB+IfhqMeVbc+VKE/YtQnAb7bU/pNfbkTjZAy466UkiUfOm+LUlQSIYyHxZiHtTH+81V4GY0UUbLWtFBGckqL928ui9w3KBqIqjLBY5cW0neFjiqsmF9OOy36yq29qdmm5HrzXv/qFomBCyCLgHIy2wq+0Ge6PAQbRpsXACTlZYIqxzmoNuehbDOxfnAWWnHAI6NkkMScDN++vi+MY/c2GlmR9+9DVSEesu4qEe5r0qwAxA4J4Apg0C6NbKvfgl4Mh8OrWQQYFJbnTJSXVvKVkjbpjGjSWETRb2jHNCzWv7Xg2A7O9ANEWngZdGU0VU9OW8IwfzhlJuDQoAHHj7urcYS9MuM6suLUl6i8MunwUrA6VYXqcxzb6CSnPV1cR5ZBXFhHznQAK4wWMMUUq09tpRMhwxiAaE4ITVqLMVD6HPoTYU5b2DYg0FojI7bJqmLvxfwByD5jN1SHrkwAAAABJRU5ErkJggg==" alt="Cardiology"></p><p class="left-coder-workflow-queues-card-name"><span aria-label="Cardiology" class="">Cardiology</span></p><p class="left-coder-workflow-queues-card-count">(7)</p></div><div class="left-coder-workflow-queues-card-top"><p class="left-coder-workflow-queues-card-icon"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAARCAYAAAACCvahAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGjSURBVHgBpVK9TgJBEJ7ZPVEr6S3ERC1ovHuDK9WYiFETO89oLzwBtZXY2SDQGY3xKPzp1M4ObIyFifcIVMQIu+Ps8RO4AwudZmd355v5vpkB+IfhqMeVbc+VKE/YtQnAb7bU/pNfbkTjZAy466UkiUfOm+LUlQSIYyHxZiHtTH+81V4GY0UUbLWtFBGckqL928ui9w3KBqIqjLBY5cW0neFjiqsmF9OOy36yq29qdmm5HrzXv/qFomBCyCLgHIy2wq+0Ge6PAQbRpsXACTlZYIqxzmoNuehbDOxfnAWWnHAI6NkkMScDN++vi+MY/c2GlmR9+9DVSEesu4qEe5r0qwAxA4J4Apg0C6NbKvfgl4Mh8OrWQQYFJbnTJSXVvKVkjbpjGjSWETRb2jHNCzWv7Xg2A7O9ANEWngZdGU0VU9OW8IwfzhlJuDQoAHHj7urcYS9MuM6suLUl6i8MunwUrA6VYXqcxzb6CSnPV1cR5ZBXFhHznQAK4wWMMUUq09tpRMhwxiAaE4ITVqLMVD6HPoTYU5b2DYg0FojI7bJqmLvxfwByD5jN1SHrkwAAAABJRU5ErkJggg==" alt="Dermatology"></p><p class="left-coder-workflow-queues-card-name"><span aria-label="Dermatology" class="">Dermatology</span></p><p class="left-coder-workflow-queues-card-count">(0)</p></div><div class="left-coder-workflow-queues-card-top"><p class="left-coder-workflow-queues-card-icon"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAARCAYAAAACCvahAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGjSURBVHgBpVK9TgJBEJ7ZPVEr6S3ERC1ovHuDK9WYiFETO89oLzwBtZXY2SDQGY3xKPzp1M4ObIyFifcIVMQIu+Ps8RO4AwudZmd355v5vpkB+IfhqMeVbc+VKE/YtQnAb7bU/pNfbkTjZAy466UkiUfOm+LUlQSIYyHxZiHtTH+81V4GY0UUbLWtFBGckqL928ui9w3KBqIqjLBY5cW0neFjiqsmF9OOy36yq29qdmm5HrzXv/qFomBCyCLgHIy2wq+0Ge6PAQbRpsXACTlZYIqxzmoNuehbDOxfnAWWnHAI6NkkMScDN++vi+MY/c2GlmR9+9DVSEesu4qEe5r0qwAxA4J4Apg0C6NbKvfgl4Mh8OrWQQYFJbnTJSXVvKVkjbpjGjSWETRb2jHNCzWv7Xg2A7O9ANEWngZdGU0VU9OW8IwfzhlJuDQoAHHj7urcYS9MuM6suLUl6i8MunwUrA6VYXqcxzb6CSnPV1cR5ZBXFhHznQAK4wWMMUUq09tpRMhwxiAaE4ITVqLMVD6HPoTYU5b2DYg0FojI7bJqmLvxfwByD5jN1SHrkwAAAABJRU5ErkJggg==" alt="Endocrinology"></p><p class="left-coder-workflow-queues-card-name"><span aria-label="Endocrinology" class="">Endocrinology</span></p><p class="left-coder-workflow-queues-card-count">(0)</p></div><div class="left-coder-workflow-queues-card-top"><p class="left-coder-workflow-queues-card-icon"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAARCAYAAAACCvahAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGjSURBVHgBpVK9TgJBEJ7ZPVEr6S3ERC1ovHuDK9WYiFETO89oLzwBtZXY2SDQGY3xKPzp1M4ObIyFifcIVMQIu+Ps8RO4AwudZmd355v5vpkB+IfhqMeVbc+VKE/YtQnAb7bU/pNfbkTjZAy466UkiUfOm+LUlQSIYyHxZiHtTH+81V4GY0UUbLWtFBGckqL928ui9w3KBqIqjLBY5cW0neFjiqsmF9OOy36yq29qdmm5HrzXv/qFomBCyCLgHIy2wq+0Ge6PAQbRpsXACTlZYIqxzmoNuehbDOxfnAWWnHAI6NkkMScDN++vi+MY/c2GlmR9+9DVSEesu4qEe5r0qwAxA4J4Apg0C6NbKvfgl4Mh8OrWQQYFJbnTJSXVvKVkjbpjGjSWETRb2jHNCzWv7Xg2A7O9ANEWngZdGU0VU9OW8IwfzhlJuDQoAHHj7urcYS9MuM6suLUl6i8MunwUrA6VYXqcxzb6CSnPV1cR5ZBXFhHznQAK4wWMMUUq09tpRMhwxiAaE4ITVqLMVD6HPoTYU5b2DYg0FojI7bJqmLvxfwByD5jN1SHrkwAAAABJRU5ErkJggg==" alt="Gastroenterology"></p><p class="left-coder-workflow-queues-card-name"><span aria-label="Gastroenterology" class="">Gastroenterology</span></p><p class="left-coder-workflow-queues-card-count">(0)</p></div><div class="left-coder-workflow-queues-card-top"><p class="left-coder-workflow-queues-card-icon"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAARCAYAAAACCvahAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGjSURBVHgBpVK9TgJBEJ7ZPVEr6S3ERC1ovHuDK9WYiFETO89oLzwBtZXY2SDQGY3xKPzp1M4ObIyFifcIVMQIu+Ps8RO4AwudZmd355v5vpkB+IfhqMeVbc+VKE/YtQnAb7bU/pNfbkTjZAy466UkiUfOm+LUlQSIYyHxZiHtTH+81V4GY0UUbLWtFBGckqL928ui9w3KBqIqjLBY5cW0neFjiqsmF9OOy36yq29qdmm5HrzXv/qFomBCyCLgHIy2wq+0Ge6PAQbRpsXACTlZYIqxzmoNuehbDOxfnAWWnHAI6NkkMScDN++vi+MY/c2GlmR9+9DVSEesu4qEe5r0qwAxA4J4Apg0C6NbKvfgl4Mh8OrWQQYFJbnTJSXVvKVkjbpjGjSWETRb2jHNCzWv7Xg2A7O9ANEWngZdGU0VU9OW8IwfzhlJuDQoAHHj7urcYS9MuM6suLUl6i8MunwUrA6VYXqcxzb6CSnPV1cR5ZBXFhHznQAK4wWMMUUq09tpRMhwxiAaE4ITVqLMVD6HPoTYU5b2DYg0FojI7bJqmLvxfwByD5jN1SHrkwAAAABJRU5ErkJggg==" alt="General Med"></p><p class="left-coder-workflow-queues-card-name"><span aria-label="General Med" class="">General Med</span></p><p class="left-coder-workflow-queues-card-count">(0)</p></div><div class="left-coder-workflow-queues-card-top"><p class="left-coder-workflow-queues-card-icon"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAARCAYAAAACCvahAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGjSURBVHgBpVK9TgJBEJ7ZPVEr6S3ERC1ovHuDK9WYiFETO89oLzwBtZXY2SDQGY3xKPzp1M4ObIyFifcIVMQIu+Ps8RO4AwudZmd355v5vpkB+IfhqMeVbc+VKE/YtQnAb7bU/pNfbkTjZAy466UkiUfOm+LUlQSIYyHxZiHtTH+81V4GY0UUbLWtFBGckqL928ui9w3KBqIqjLBY5cW0neFjiqsmF9OOy36yq29qdmm5HrzXv/qFomBCyCLgHIy2wq+0Ge6PAQbRpsXACTlZYIqxzmoNuehbDOxfnAWWnHAI6NkkMScDN++vi+MY/c2GlmR9+9DVSEesu4qEe5r0qwAxA4J4Apg0C6NbKvfgl4Mh8OrWQQYFJbnTJSXVvKVkjbpjGjSWETRb2jHNCzWv7Xg2A7O9ANEWngZdGU0VU9OW8IwfzhlJuDQoAHHj7urcYS9MuM6suLUl6i8MunwUrA6VYXqcxzb6CSnPV1cR5ZBXFhHznQAK4wWMMUUq09tpRMhwxiAaE4ITVqLMVD6HPoTYU5b2DYg0FojI7bJqmLvxfwByD5jN1SHrkwAAAABJRU5ErkJggg==" alt="General Surgery"></p><p class="left-coder-workflow-queues-card-name"><span aria-label="General Surgery" class="">General Surgery</span></p><p class="left-coder-workflow-queues-card-count">(0)</p></div><div class="left-coder-workflow-queues-card-top"><p class="left-coder-workflow-queues-card-icon"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAARCAYAAAACCvahAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGjSURBVHgBpVK9TgJBEJ7ZPVEr6S3ERC1ovHuDK9WYiFETO89oLzwBtZXY2SDQGY3xKPzp1M4ObIyFifcIVMQIu+Ps8RO4AwudZmd355v5vpkB+IfhqMeVbc+VKE/YtQnAb7bU/pNfbkTjZAy466UkiUfOm+LUlQSIYyHxZiHtTH+81V4GY0UUbLWtFBGckqL928ui9w3KBqIqjLBY5cW0neFjiqsmF9OOy36yq29qdmm5HrzXv/qFomBCyCLgHIy2wq+0Ge6PAQbRpsXACTlZYIqxzmoNuehbDOxfnAWWnHAI6NkkMScDN++vi+MY/c2GlmR9+9DVSEesu4qEe5r0qwAxA4J4Apg0C6NbKvfgl4Mh8OrWQQYFJbnTJSXVvKVkjbpjGjSWETRb2jHNCzWv7Xg2A7O9ANEWngZdGU0VU9OW8IwfzhlJuDQoAHHj7urcYS9MuM6suLUl6i8MunwUrA6VYXqcxzb6CSnPV1cR5ZBXFhHznQAK4wWMMUUq09tpRMhwxiAaE4ITVqLMVD6HPoTYU5b2DYg0FojI7bJqmLvxfwByD5jN1SHrkwAAAABJRU5ErkJggg==" alt="Haematology"></p><p class="left-coder-workflow-queues-card-name"><span aria-label="Haematology" class="">Haematology</span></p><p class="left-coder-workflow-queues-card-count">(0)</p></div><div class="left-coder-workflow-queues-card-top"><p class="left-coder-workflow-queues-card-icon"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAARCAYAAAACCvahAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGjSURBVHgBpVK9TgJBEJ7ZPVEr6S3ERC1ovHuDK9WYiFETO89oLzwBtZXY2SDQGY3xKPzp1M4ObIyFifcIVMQIu+Ps8RO4AwudZmd355v5vpkB+IfhqMeVbc+VKE/YtQnAb7bU/pNfbkTjZAy466UkiUfOm+LUlQSIYyHxZiHtTH+81V4GY0UUbLWtFBGckqL928ui9w3KBqIqjLBY5cW0neFjiqsmF9OOy36yq29qdmm5HrzXv/qFomBCyCLgHIy2wq+0Ge6PAQbRpsXACTlZYIqxzmoNuehbDOxfnAWWnHAI6NkkMScDN++vi+MY/c2GlmR9+9DVSEesu4qEe5r0qwAxA4J4Apg0C6NbKvfgl4Mh8OrWQQYFJbnTJSXVvKVkjbpjGjSWETRb2jHNCzWv7Xg2A7O9ANEWngZdGU0VU9OW8IwfzhlJuDQoAHHj7urcYS9MuM6suLUl6i8MunwUrA6VYXqcxzb6CSnPV1cR5ZBXFhHznQAK4wWMMUUq09tpRMhwxiAaE4ITVqLMVD6HPoTYU5b2DYg0FojI7bJqmLvxfwByD5jN1SHrkwAAAABJRU5ErkJggg==" alt="Nephrology"></p><p class="left-coder-workflow-queues-card-name"><span aria-label="Nephrology" class="">Nephrology</span></p><p class="left-coder-workflow-queues-card-count">(0)</p></div><div class="left-coder-workflow-queues-card-top"><p class="left-coder-workflow-queues-card-icon"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAARCAYAAAACCvahAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGjSURBVHgBpVK9TgJBEJ7ZPVEr6S3ERC1ovHuDK9WYiFETO89oLzwBtZXY2SDQGY3xKPzp1M4ObIyFifcIVMQIu+Ps8RO4AwudZmd355v5vpkB+IfhqMeVbc+VKE/YtQnAb7bU/pNfbkTjZAy466UkiUfOm+LUlQSIYyHxZiHtTH+81V4GY0UUbLWtFBGckqL928ui9w3KBqIqjLBY5cW0neFjiqsmF9OOy36yq29qdmm5HrzXv/qFomBCyCLgHIy2wq+0Ge6PAQbRpsXACTlZYIqxzmoNuehbDOxfnAWWnHAI6NkkMScDN++vi+MY/c2GlmR9+9DVSEesu4qEe5r0qwAxA4J4Apg0C6NbKvfgl4Mh8OrWQQYFJbnTJSXVvKVkjbpjGjSWETRb2jHNCzWv7Xg2A7O9ANEWngZdGU0VU9OW8IwfzhlJuDQoAHHj7urcYS9MuM6suLUl6i8MunwUrA6VYXqcxzb6CSnPV1cR5ZBXFhHznQAK4wWMMUUq09tpRMhwxiAaE4ITVqLMVD6HPoTYU5b2DYg0FojI7bJqmLvxfwByD5jN1SHrkwAAAABJRU5ErkJggg==" alt="Neurology"></p><p class="left-coder-workflow-queues-card-name"><span aria-label="Neurology" class="">Neurology</span></p><p class="left-coder-workflow-queues-card-count">(0)</p></div><div class="left-coder-workflow-queues-card-top"><p class="left-coder-workflow-queues-card-icon"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAARCAYAAAACCvahAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGjSURBVHgBpVK9TgJBEJ7ZPVEr6S3ERC1ovHuDK9WYiFETO89oLzwBtZXY2SDQGY3xKPzp1M4ObIyFifcIVMQIu+Ps8RO4AwudZmd355v5vpkB+IfhqMeVbc+VKE/YtQnAb7bU/pNfbkTjZAy466UkiUfOm+LUlQSIYyHxZiHtTH+81V4GY0UUbLWtFBGckqL928ui9w3KBqIqjLBY5cW0neFjiqsmF9OOy36yq29qdmm5HrzXv/qFomBCyCLgHIy2wq+0Ge6PAQbRpsXACTlZYIqxzmoNuehbDOxfnAWWnHAI6NkkMScDN++vi+MY/c2GlmR9+9DVSEesu4qEe5r0qwAxA4J4Apg0C6NbKvfgl4Mh8OrWQQYFJbnTJSXVvKVkjbpjGjSWETRb2jHNCzWv7Xg2A7O9ANEWngZdGU0VU9OW8IwfzhlJuDQoAHHj7urcYS9MuM6suLUl6i8MunwUrA6VYXqcxzb6CSnPV1cR5ZBXFhHznQAK4wWMMUUq09tpRMhwxiAaE4ITVqLMVD6HPoTYU5b2DYg0FojI7bJqmLvxfwByD5jN1SHrkwAAAABJRU5ErkJggg==" alt="Orthopaedics"></p><p class="left-coder-workflow-queues-card-name"><span aria-label="Orthopaedics" class="">Orthopaedics</span></p><p class="left-coder-workflow-queues-card-count">(0)</p></div><div class="left-coder-workflow-queues-card-top"><p class="left-coder-workflow-queues-card-icon"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAARCAYAAAACCvahAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGjSURBVHgBpVK9TgJBEJ7ZPVEr6S3ERC1ovHuDK9WYiFETO89oLzwBtZXY2SDQGY3xKPzp1M4ObIyFifcIVMQIu+Ps8RO4AwudZmd355v5vpkB+IfhqMeVbc+VKE/YtQnAb7bU/pNfbkTjZAy466UkiUfOm+LUlQSIYyHxZiHtTH+81V4GY0UUbLWtFBGckqL928ui9w3KBqIqjLBY5cW0neFjiqsmF9OOy36yq29qdmm5HrzXv/qFomBCyCLgHIy2wq+0Ge6PAQbRpsXACTlZYIqxzmoNuehbDOxfnAWWnHAI6NkkMScDN++vi+MY/c2GlmR9+9DVSEesu4qEe5r0qwAxA4J4Apg0C6NbKvfgl4Mh8OrWQQYFJbnTJSXVvKVkjbpjGjSWETRb2jHNCzWv7Xg2A7O9ANEWngZdGU0VU9OW8IwfzhlJuDQoAHHj7urcYS9MuM6suLUl6i8MunwUrA6VYXqcxzb6CSnPV1cR5ZBXFhHznQAK4wWMMUUq09tpRMhwxiAaE4ITVqLMVD6HPoTYU5b2DYg0FojI7bJqmLvxfwByD5jN1SHrkwAAAABJRU5ErkJggg==" alt="pathology"></p><p class="left-coder-workflow-queues-card-name"><span aria-label="pathology" class="">pathology</span></p><p class="left-coder-workflow-queues-card-count">(1)</p></div><div class="left-coder-workflow-queues-card-top"><p class="left-coder-workflow-queues-card-icon"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAARCAYAAAACCvahAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGjSURBVHgBpVK9TgJBEJ7ZPVEr6S3ERC1ovHuDK9WYiFETO89oLzwBtZXY2SDQGY3xKPzp1M4ObIyFifcIVMQIu+Ps8RO4AwudZmd355v5vpkB+IfhqMeVbc+VKE/YtQnAb7bU/pNfbkTjZAy466UkiUfOm+LUlQSIYyHxZiHtTH+81V4GY0UUbLWtFBGckqL928ui9w3KBqIqjLBY5cW0neFjiqsmF9OOy36yq29qdmm5HrzXv/qFomBCyCLgHIy2wq+0Ge6PAQbRpsXACTlZYIqxzmoNuehbDOxfnAWWnHAI6NkkMScDN++vi+MY/c2GlmR9+9DVSEesu4qEe5r0qwAxA4J4Apg0C6NbKvfgl4Mh8OrWQQYFJbnTJSXVvKVkjbpjGjSWETRb2jHNCzWv7Xg2A7O9ANEWngZdGU0VU9OW8IwfzhlJuDQoAHHj7urcYS9MuM6suLUl6i8MunwUrA6VYXqcxzb6CSnPV1cR5ZBXFhHznQAK4wWMMUUq09tpRMhwxiAaE4ITVqLMVD6HPoTYU5b2DYg0FojI7bJqmLvxfwByD5jN1SHrkwAAAABJRU5ErkJggg==" alt="Respiratory"></p><p class="left-coder-workflow-queues-card-name"><span aria-label="Respiratory" class="">Respiratory</span></p><p class="left-coder-workflow-queues-card-count">(0)</p></div><div class="left-coder-workflow-queues-card-top"><p class="left-coder-workflow-queues-card-icon"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAARCAYAAAACCvahAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGjSURBVHgBpVK9TgJBEJ7ZPVEr6S3ERC1ovHuDK9WYiFETO89oLzwBtZXY2SDQGY3xKPzp1M4ObIyFifcIVMQIu+Ps8RO4AwudZmd355v5vpkB+IfhqMeVbc+VKE/YtQnAb7bU/pNfbkTjZAy466UkiUfOm+LUlQSIYyHxZiHtTH+81V4GY0UUbLWtFBGckqL928ui9w3KBqIqjLBY5cW0neFjiqsmF9OOy36yq29qdmm5HrzXv/qFomBCyCLgHIy2wq+0Ge6PAQbRpsXACTlZYIqxzmoNuehbDOxfnAWWnHAI6NkkMScDN++vi+MY/c2GlmR9+9DVSEesu4qEe5r0qwAxA4J4Apg0C6NbKvfgl4Mh8OrWQQYFJbnTJSXVvKVkjbpjGjSWETRb2jHNCzWv7Xg2A7O9ANEWngZdGU0VU9OW8IwfzhlJuDQoAHHj7urcYS9MuM6suLUl6i8MunwUrA6VYXqcxzb6CSnPV1cR5ZBXFhHznQAK4wWMMUUq09tpRMhwxiAaE4ITVqLMVD6HPoTYU5b2DYg0FojI7bJqmLvxfwByD5jN1SHrkwAAAABJRU5ErkJggg==" alt="Unassigned Queue"></p><p class="left-coder-workflow-queues-card-name"><span aria-label="Unassigned Queue" class="">Unassigned Queue</span></p><p class="left-coder-workflow-queues-card-count">(0)</p></div><div class="left-coder-workflow-queues-card-top"><p class="left-coder-workflow-queues-card-icon"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAARCAYAAAACCvahAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGjSURBVHgBpVK9TgJBEJ7ZPVEr6S3ERC1ovHuDK9WYiFETO89oLzwBtZXY2SDQGY3xKPzp1M4ObIyFifcIVMQIu+Ps8RO4AwudZmd355v5vpkB+IfhqMeVbc+VKE/YtQnAb7bU/pNfbkTjZAy466UkiUfOm+LUlQSIYyHxZiHtTH+81V4GY0UUbLWtFBGckqL928ui9w3KBqIqjLBY5cW0neFjiqsmF9OOy36yq29qdmm5HrzXv/qFomBCyCLgHIy2wq+0Ge6PAQbRpsXACTlZYIqxzmoNuehbDOxfnAWWnHAI6NkkMScDN++vi+MY/c2GlmR9+9DVSEesu4qEe5r0qwAxA4J4Apg0C6NbKvfgl4Mh8OrWQQYFJbnTJSXVvKVkjbpjGjSWETRb2jHNCzWv7Xg2A7O9ANEWngZdGU0VU9OW8IwfzhlJuDQoAHHj7urcYS9MuM6suLUl6i8MunwUrA6VYXqcxzb6CSnPV1cR5ZBXFhHznQAK4wWMMUUq09tpRMhwxiAaE4ITVqLMVD6HPoTYU5b2DYg0FojI7bJqmLvxfwByD5jN1SHrkwAAAABJRU5ErkJggg==" alt="vascular"></p><p class="left-coder-workflow-queues-card-name"><span aria-label="vascular" class="">vascular</span></p><p class="left-coder-workflow-queues-card-count">(1)</p></div></div><p class="left-coder-workflow-coders-card-header"> Coders </p><div class="coder-workflow-queues-container-coders"><div class="left-coder-workflow-coders-card-top" style="cursor: pointer;"><p class="left-coder-workflow-coders-card-icon"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGeSURBVHgBzVS9TgJBEJ6ZAysT9QmksbASn0BKpRGjGMuTxMROeALCG3CdiYhHpxH1TBTsgCeAysRYAG9wjQ3H7ThHAiHCIjTGr9rM7vftNz+7AP8VOGtz98iMGWBkGTkCjC4otiqPRVt33tBtxJMp00C6QcI7ZLRE8AMNzG5sbq9+vjcbCzmLH6fa0IfcuJPEyXnE8732l+ev1R3b/ckhnZi4iSil6uMx5/ayw8Dd5VAoOo2jFwNwpxNwRcfRijFAC5foYjwW1FHi7ku5UJ/GCenEwkb4tO97zfhRyvVQPYeZ9sVtmn3O6DgzRyMoeM/v2Qi4I7VqsMJ89eHagb+A1tneoZkgMPaZODY6zNhhxaWgy2+O3flVLJ40o4D0JERAxBL43JLFoLMMKirhhCzXmcGqlot5rdjg+aBRk6eTeS0X8qBB0FW5KCsu7Uq5mJsQ2z0xI6SohoqsWUJDJJJn0T6o4OKD4aiM5ox8ikke3XmEAjj3Vy3FbCng9DA2mjOpUUwRN4NUYX6wELcmxORXqBPLUCIdwAJAprkyWRjfrL2wrls8yzIAAAAASUVORK5CYII=" alt="Sai"></p><p class="left-coder-workflow-coders-card-name">Sai</p><p class="left-coder-workflow-coders-card-count">(6)</p></div></div><p class="left-coder-workflow-coders-card-header"> My Stats </p><div class="stats-top-wrapper"><div class="stats-value-wrapper"><label>Coded</label><span>2</span></div><div class="stats-value-wrapper"><label>NWAU</label><span>24.9747</span></div><div class="stats-value-wrapper"><label>$</label><span>161,461</span></div></div></div></div><div class="right-coder-workflow-card"><div class="coder-dashboard"><div class="coder-dashboard-cards" style="background-color: rgb(254, 242, 242);"><div class="coder-dashboard-cards-top"><p class="coder-dashboard-name">Urgent</p><p class="coder-dashboard-icon"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAYAAACpF6WWAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAE5SURBVHgB1dPBTcMwFADQbzvlhpQROkJX6ASIGwIkDFy4dYSWCRA3pAowogdujBDYIBuQbkB7qlrF7q/bRnHs36aHHvKlJE7+z9O35A/QlGBUwlzKDgjRCychZaPX54NQC0Y8wXRM/QjaDNjo7bEW6oCG32K3P25FHoPW37hoUzDbBbLPobLfL2TbFn+pzL7LBwQXCQXzfaCNlniHE/FXdKJeMuCtLi7xyQbm+q4fRHGbT0GQCA+W69246La4BujAAL/V7xyOEM1Bo1pV4vQcYBYeBANx9bSXO53YmsrxsJFP+6Dniedd3d8geIbL/81VQUUu8Z6Gzh3GGEs/PFCAshjnXaZUgboTJSWOoFh11Nk12z44TMt5f/bLsDEKK8ZOgTYxQj0KDKIeHA4SJNEChohAo2wzTQ2PJawxi56/34ACAAAAAElFTkSuQmCC" alt="Urgent"></p></div><p class="coder-dashboard-count">0</p></div><div class="coder-dashboard-cards" style="background-color: rgb(236, 253, 245);"><div class="coder-dashboard-cards-top"><p class="coder-dashboard-name">For Review</p><p class="coder-dashboard-icon"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAYAAACpF6WWAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAFUSURBVHgB1ZRBTsJAFIb/V6alxg1H6BE4AtwATiAuNKXEWE5APUFNTKGJC44gnoB6A7xBvUHdiW3nOWiaCARoDSz8dvNm8s1k5p8H/Bdos2BObAsV+eiH8U6pHjhTEPdQnThdchvDH7koqrXA7hFxSxK3VTEua8tl3gDpU91gNwXcNak6siUZb5kTRhmqIQL7WRlaxVjDCfib1L9qirE9P57Uty29Lp6I8Xocqe829DrNCZSkg9A9ilQYy+kqgxrJ7r51O6VGYM++c1uMJ/ZIIzQ1FbnNsG9tvmuCkXsqJnMVl5hYvjOTx0r4eUC496Tp4HHBGneJyINW8zmnu6wfRijB3jtdSSTQhcQwuxl7KIk4tCB3JrMc1TjJjxK/9BFJ3NYerju60BZlBVkGS937hepuUVFba31G4KxeeITqvJyf1TvJ5X2yJS2o0qhN00wK2Un5AuvGdmI055vIAAAAAElFTkSuQmCC" alt="For Review"></p></div><p class="coder-dashboard-count">1</p></div></div><div class="workflow-coder-table-container" style="overflow-x: auto;"><div class="workflow-coder-table-header"><div class="workflow-coder-selected-rows-count"><span class="workflow-coder-selected-rows-count-badge badge bg-primary">Total Episodes: 6</span></div><div class="workflow-coder-header-spacer"></div><div class="coder-screen-search"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAYAAACpF6WWAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHWSURBVHgB1VRLTsMwEH12wp4bkN6g3CCcAAwrhGiJoEis6A3anqCwYgEoBYRYIAicALhBuUG4QZdIbTzMWAW1IS1h2SdZY9njN18PsChQsy7O4/tQeX5daYRECMbHfVh6G1p1chSZtDRpHCfL1kOLFJrugOidSfusGWitVsYGBkS206htnRSR+vmDzMcLiyoRvZGnmoc7m/3J+8vrZA8aLUB3z68fUEQ85enl7XOLrG3z6jTqW23MQHyXBDbDi3htNVYPd8yUYT0RdiCEbCadRyiItk2aKRhHYNHN3/+QWs+GTlp0UAJj7155hVKHQlIiVRW5lOEJJcHhP4scYVQtJOWdsxZFZoCS0LBOlzwdTJ/nkA9lHiy001WZTQtJOXxXwaFnN1AWRKEIH35x9f0MPRYDrfQxSkC6RWm1zt3Sy6fsh1QuCDjlbZUbvPsXIf86+SQc2e9umcppY9e0WbzKF724SZIzfpx/IDNBCFlH7gb4/G20cKBc3Dzy11PfaZB8peN9yGvZkYG4nVQdhHSYYW1ywOgi0oPdzabno8IPr6SCfLThCIk+OEUdb4QK6+wpQiSDZok9n4xq5ugrCxkwbDYWjw9qpjLT0/9gv2Z6LAxpV+QFwxcgw8QJARg17AAAAABJRU5ErkJggg==" alt="search"><input type="text" placeholder="Search by Episode ID" value=""></div><span style="cursor: pointer;"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M440-120v-240h80v80h320v80H520v80h-80Zm-320-80v-80h240v80H120Zm160-160v-80H120v-80h160v-80h80v240h-80Zm160-80v-80h400v80H440Zm160-160v-240h80v80h160v80H680v80h-80Zm-480-80v-80h400v80H120Z"></path></svg></span><div class="coder-refresh-btn" style="cursor: pointer;"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAABQ9JREFUeJztm21oVmUYx/+379hWjZXzJVw1ytUa5ShCQojoBUU/FhUKEdkYoZEk6TIIgiB6IeqDwj4UVFSS9CF6M/oSSFlEH3SmwUjLTd1ybra2ubl+fbgfdZ3d5zzn5X6eR9j5wQPbebmu/3U951zn3Pd9PVJOTk7ONMaUyxGwWFKLpAZJ10qaL+lKSWOSBgufY5IOSNpvjBkol7aSAMwB1gIdwJ8kpxN4BVgJzKx0PLEB6oFXgd4UQYfxO7AFqKl0fKEAi4CdwFmPgQcZAl4CLqt0vBcAZgAbgYESBh7kGPCID/2ZiiCwUNJ7ku5NcNqgpCOS+gp/z5VUI1sQGyTNS2DrfUltxpghh7ZZku4s/LvPGHMugd3iALcDPTG+rb+Bj4H1QEMRm7OBFqAN+AY4F8P+YaAxYKca+GnSMfuAap/Br8bej1H8BjyZxTFQB2wF+or46gVaJp33vOOYdl/BPwCMRogZBFqxl6Avn1XANuCfCL8DwIrC8R859n/oQ8gdwHCEiD3A0syOwv3fCOyN8N8LXA/scuzbldX5YqA7xPG/wHNAyd8sgZnAmxFJOFj4IvwlADAhRsEWqg0eY4yr6RlgIiIRXhPwVETwD3uMK6muzSVPALAAOB1idLPnmNLoi7odvCRgR4jB3Z5jSQW2JnxfkgQAS3C/2/cBV5cgnlQAjUQ/nUITUOxZvUnSHMf2F4wxfZmVJwSolbRR0jJJwSHyKUnX+HQ2CzjhyGQXFRifY+cXDsa41BNdATMifN4vqc6x/Q1jzISXqJJxl6SbfBuNSsAax7ZRSR/4FhETMp7fncybHcwE+SSjiNRgR4qdKS//YaDJZddZBIE5km5w7PraZ1BJMMaMAytli2CjphbBMHokdRhjOmM7wxbA4JzeGHZmd3oAPMT/h73bK62p7GBfg1cTmHHJycnJybnEAZqANcCCSmspO8CLkx7fo8CDldZUNrCTt2OBl7gThIxgQ+cDgGZJT0haFNP3hKRDkt42xvQnVu6PtZJmB7bVyQ784o1igWZgJOXA4wAQFFA2gE8dmg6HHR82HN6gZIuUk2mStCLluZnA9g+scuzaE3ZOWAIWelFUftbLrjYH+SyRFdxLS3HZX4lbADtfcMShp5uIKby0C5g9kvYGtk1I+lW2CI6ntJuFVkn1ju3vJp7Ci3EFjAA3e5HtAewy+l8hOl3zmheImhOMYp6kd/C4BJ4W7IJsh6Rax+4OY8zJNEbj1oCdWQPICrZvwEU/cFVao0mKYMXWB4F1hK8Qt2YxnCQBE8DTHuOKq7EtIvjPydKrEJKAL4BfIhLxOpC2piTRZoB2bFOGi6MUKXxxnDhbTIClwPGIJHxHkU6wjLquA76N8D8E3ObDUWiTEbZPqL+IiC3A/MxCLuqZC2zCttyFMQzc48thu8PBtkn7bwVORogBOwR9lrSV2PqpBbbjXqSdzBngPi/BFxxXY5sLz/MDUBU4ZhlwqIgwgHHgK2zr3HIiXpOx93cj8Diwm+i2uPN0A8vTxhpaKbnYaoqkH12tpoWk7JC0LoHPs5K6JJ0ufMYlVcvOO9RLqgo/dQpfSnrMGNOb4Bz/AI8S3kJXCk5hr6iy/eCjKNhuzpcp3qqShRHgLS6h9pwpYAvXVuAPj4EfxyZ3SaXjiw22e+tu4DXiFcsgXdgOtVWUcH6hnD+aqpHULOkW2WamyyVdITsncabwOSpbIH+ueGHLycnJmQ78B6ejTg2CRvN5AAAAAElFTkSuQmCC" alt="Refresh"></div></div><div class="workflow-coder-table-body"><table class="workflow-table-Hims table" style="width: 100%;"><thead class="workflow-coder-table-thead"><tr class="workflow-coder-table-tr"><th class="workflow-coder-table-th"><span></span></th><th class="workflow-coder-table-th"><span>Episode Identifier</span><span class="episodelist-sort-icon"><span aria-label="Click to sort" class=""><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sort" class="svg-inline--fa fa-sort " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M137.4 41.4c12.5-12.5 32.8-12.5 45.3 0l128 128c9.2 9.2 11.9 22.9 6.9 34.9s-16.6 19.8-29.6 19.8L32 224c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9l128-128zm0 429.3l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8l256 0c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128c-12.5 12.5-32.8 12.5-45.3 0z"></path></svg></span></span></th><th class="workflow-coder-table-th"><span>MRN/UR</span><span class="episodelist-sort-icon"><span aria-label="Click to sort" class=""><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sort" class="svg-inline--fa fa-sort " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M137.4 41.4c12.5-12.5 32.8-12.5 45.3 0l128 128c9.2 9.2 11.9 22.9 6.9 34.9s-16.6 19.8-29.6 19.8L32 224c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9l128-128zm0 429.3l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8l256 0c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128c-12.5 12.5-32.8 12.5-45.3 0z"></path></svg></span></span></th><th class="workflow-coder-table-th"><span>Admission Date</span><span class="episodelist-sort-icon"><span aria-label="Click to sort" class=""><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sort" class="svg-inline--fa fa-sort " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M137.4 41.4c12.5-12.5 32.8-12.5 45.3 0l128 128c9.2 9.2 11.9 22.9 6.9 34.9s-16.6 19.8-29.6 19.8L32 224c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9l128-128zm0 429.3l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8l256 0c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128c-12.5 12.5-32.8 12.5-45.3 0z"></path></svg></span></span></th><th class="workflow-coder-table-th"><span>Discharge Date</span><span class="episodelist-sort-icon"><span aria-label="Click to sort" class=""><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sort" class="svg-inline--fa fa-sort " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M137.4 41.4c12.5-12.5 32.8-12.5 45.3 0l128 128c9.2 9.2 11.9 22.9 6.9 34.9s-16.6 19.8-29.6 19.8L32 224c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9l128-128zm0 429.3l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8l256 0c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128c-12.5 12.5-32.8 12.5-45.3 0z"></path></svg></span></span></th><th class="workflow-coder-table-th"><span>LOS</span><span class="episodelist-sort-icon"><span aria-label="Click to sort" class=""><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sort" class="svg-inline--fa fa-sort " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M137.4 41.4c12.5-12.5 32.8-12.5 45.3 0l128 128c9.2 9.2 11.9 22.9 6.9 34.9s-16.6 19.8-29.6 19.8L32 224c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9l128-128zm0 429.3l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8l256 0c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128c-12.5 12.5-32.8 12.5-45.3 0z"></path></svg></span></span></th><th class="workflow-coder-table-th"><span>Speciality/Unit</span><span class="episodelist-sort-icon"><span aria-label="Click to sort" class=""><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sort" class="svg-inline--fa fa-sort " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M137.4 41.4c12.5-12.5 32.8-12.5 45.3 0l128 128c9.2 9.2 11.9 22.9 6.9 34.9s-16.6 19.8-29.6 19.8L32 224c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9l128-128zm0 429.3l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8l256 0c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128c-12.5 12.5-32.8 12.5-45.3 0z"></path></svg></span></span></th><th class="workflow-coder-table-th"><span>Health Fund Contract</span><span class="episodelist-sort-icon"><span aria-label="Click to sort" class=""><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sort" class="svg-inline--fa fa-sort " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M137.4 41.4c12.5-12.5 32.8-12.5 45.3 0l128 128c9.2 9.2 11.9 22.9 6.9 34.9s-16.6 19.8-29.6 19.8L32 224c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9l128-128zm0 429.3l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8l256 0c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128c-12.5 12.5-32.8 12.5-45.3 0z"></path></svg></span></span></th><th class="workflow-auditor-table-th"><span>Provisional DRG</span><span class="episodelist-sort-icon"><span aria-label="Click to sort" class=""><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sort" class="svg-inline--fa fa-sort " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M137.4 41.4c12.5-12.5 32.8-12.5 45.3 0l128 128c9.2 9.2 11.9 22.9 6.9 34.9s-16.6 19.8-29.6 19.8L32 224c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9l128-128zm0 429.3l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8l256 0c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128c-12.5 12.5-32.8 12.5-45.3 0z"></path></svg></span></span></th><th class="workflow-auditor-table-th"><span>Provisional Account Revenue</span><span class="episodelist-sort-icon"><span aria-label="Click to sort" class=""><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sort" class="svg-inline--fa fa-sort " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M137.4 41.4c12.5-12.5 32.8-12.5 45.3 0l128 128c9.2 9.2 11.9 22.9 6.9 34.9s-16.6 19.8-29.6 19.8L32 224c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9l128-128zm0 429.3l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8l256 0c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128c-12.5 12.5-32.8 12.5-45.3 0z"></path></svg></span></span></th><th class="workflow-coder-table-th"><span>Current Queue</span><span class="episodelist-sort-icon"><span aria-label="Click to sort" class=""><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sort" class="svg-inline--fa fa-sort " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M137.4 41.4c12.5-12.5 32.8-12.5 45.3 0l128 128c9.2 9.2 11.9 22.9 6.9 34.9s-16.6 19.8-29.6 19.8L32 224c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9l128-128zm0 429.3l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8l256 0c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128c-12.5 12.5-32.8 12.5-45.3 0z"></path></svg></span></span></th><th class="workflow-coder-table-th"><span>Priority</span><span class="episodelist-sort-icon"><span aria-label="Click to sort" class=""><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sort" class="svg-inline--fa fa-sort " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M137.4 41.4c12.5-12.5 32.8-12.5 45.3 0l128 128c9.2 9.2 11.9 22.9 6.9 34.9s-16.6 19.8-29.6 19.8L32 224c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9l128-128zm0 429.3l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8l256 0c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128c-12.5 12.5-32.8 12.5-45.3 0z"></path></svg></span></span></th><th class="workflow-coder-table-th"><span>Status</span><span class="episodelist-sort-icon"><span aria-label="Click to sort" class=""><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sort" class="svg-inline--fa fa-sort " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M137.4 41.4c12.5-12.5 32.8-12.5 45.3 0l128 128c9.2 9.2 11.9 22.9 6.9 34.9s-16.6 19.8-29.6 19.8L32 224c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9l128-128zm0 429.3l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8l256 0c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128c-12.5 12.5-32.8 12.5-45.3 0z"></path></svg></span></span></th></tr></thead><tbody class="workflow-coder-table-body"><tr class="workflow-coder-table-tr"><td class="workflow-him-table-td"></td><td class="workflow-him-table-td">EP-UCPJULKRRLZ2</td><td class="workflow-him-table-td">MRN-4594352275</td><td class="workflow-him-table-td">08-04-2026</td><td class="workflow-him-table-td">15-04-2026</td><td class="workflow-him-table-td">7</td><td class="workflow-him-table-td">No Speciality</td><td class="workflow-him-table-td">-</td><td class="workflow-auditor-table-td"><span class="" style="cursor: pointer; font-weight: 500; display: inline-flex; align-items: center; gap: 2px;">Z65Z<svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-vh810p" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"></path></svg></span></td><td class="workflow-him-table-td"><span>$ 9,419</span></td><td class="workflow-him-table-td">-</td><td class="workflow-him-table-td">-</td><td class="workflow-auditor-table-td"><div class="MuiBox-root css-1y5pp40"><div class="MuiBox-root css-1to3hc9">On Hold</div></div></td></tr><tr class="workflow-coder-table-tr"><td class="workflow-him-table-td"></td><td class="workflow-him-table-td">A003460747</td><td class="workflow-him-table-td">2001468</td><td class="workflow-him-table-td">24-10-2025</td><td class="workflow-him-table-td">24-10-2025</td><td class="workflow-him-table-td">1</td><td class="workflow-him-table-td">No Speciality</td><td class="workflow-him-table-td">AHSA</td><td class="workflow-auditor-table-td"><span class="" style="cursor: pointer; font-weight: 500; display: inline-flex; align-items: center; gap: 2px;">960Z<svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-vh810p" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"></path></svg></span></td><td class="workflow-him-table-td"><span>$ 0</span></td><td class="workflow-him-table-td">-</td><td class="workflow-him-table-td">-</td><td class="workflow-auditor-table-td"><div class="MuiBox-root css-1y5pp40"><div class="MuiBox-root css-1to3hc9">AI codes awaiting validation</div></div></td></tr><tr class="workflow-coder-table-tr"><td class="workflow-him-table-td"></td><td class="workflow-him-table-td">A003370660</td><td class="workflow-him-table-td">2001466</td><td class="workflow-him-table-td">15-10-2025</td><td class="workflow-him-table-td">17-10-2025</td><td class="workflow-him-table-td">2</td><td class="workflow-him-table-td">No Speciality</td><td class="workflow-him-table-td">ACA</td><td class="workflow-auditor-table-td"><span class="" style="cursor: pointer; font-weight: 500; display: inline-flex; align-items: center; gap: 2px;">G70B<svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-vh810p" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"></path></svg></span></td><td class="workflow-him-table-td"><span>$ 4,803</span></td><td class="workflow-him-table-td">-</td><td class="workflow-him-table-td">-</td><td class="workflow-auditor-table-td"><div class="MuiBox-root css-1y5pp40"><div class="MuiBox-root css-1to3hc9">AI codes awaiting validation</div></div></td></tr><tr class="workflow-coder-table-tr"><td class="workflow-him-table-td"></td><td class="workflow-him-table-td">KEMH_72038135</td><td class="workflow-him-table-td">2001558</td><td class="workflow-him-table-td">14-07-2025</td><td class="workflow-him-table-td">16-07-2025</td><td class="workflow-him-table-td">2</td><td class="workflow-him-table-td">No Speciality</td><td class="workflow-him-table-td">BUPA</td><td class="workflow-auditor-table-td"><span class="" style="cursor: pointer; font-weight: 500; display: inline-flex; align-items: center; gap: 2px;"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-vh810p" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"></path></svg></span></td><td class="workflow-him-table-td"><span>$ 0</span></td><td class="workflow-him-table-td">-</td><td class="workflow-him-table-td">-</td><td class="workflow-auditor-table-td"><div class="MuiBox-root css-1y5pp40"><div class="MuiBox-root css-1to3hc9">AI codes awaiting validation</div></div></td></tr><tr class="workflow-coder-table-tr"><td class="workflow-him-table-td"></td><td class="workflow-him-table-td">FF8411</td><td class="workflow-him-table-td">MRN-7524579519</td><td class="workflow-him-table-td">02-07-2025</td><td class="workflow-him-table-td">02-07-2025</td><td class="workflow-him-table-td">1</td><td class="workflow-him-table-td">No Speciality</td><td class="workflow-him-table-td">AHSA</td><td class="workflow-auditor-table-td"><span class="" style="cursor: pointer; font-weight: 500; display: inline-flex; align-items: center; gap: 2px;">R63Z<svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-vh810p" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"></path></svg></span></td><td class="workflow-him-table-td"><span>$ 1,953</span></td><td class="workflow-him-table-td">-</td><td class="workflow-him-table-td">-</td><td class="workflow-auditor-table-td"><div class="MuiBox-root css-1y5pp40"><div class="MuiBox-root css-1to3hc9">On Hold</div></div></td></tr><tr class="workflow-coder-table-tr"><td class="workflow-him-table-td"></td><td class="workflow-him-table-td">FF7919</td><td class="workflow-him-table-td">MRN-7524579517</td><td class="workflow-him-table-td">01-07-2025</td><td class="workflow-him-table-td">01-07-2025</td><td class="workflow-him-table-td">1</td><td class="workflow-him-table-td">No Speciality</td><td class="workflow-him-table-td">BUPA</td><td class="workflow-auditor-table-td"><span class="" style="cursor: pointer; font-weight: 500; display: inline-flex; align-items: center; gap: 2px;">R63Z<svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-vh810p" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"></path></svg></span></td><td class="workflow-him-table-td"><span>$ 1,953</span></td><td class="workflow-him-table-td">-</td><td class="workflow-him-table-td">-</td><td class="workflow-auditor-table-td"><div class="MuiBox-root css-1y5pp40"><div class="MuiBox-root css-1to3hc9">For Review</div></div></td></tr></tbody></table></div><div class="coderViewTable-footer"><div><ul class="HimTable-pagination pagination"><li class="page-item disabled"><span class="page-link"><span aria-hidden="true">«</span><span class="visually-hidden">First</span></span></li><li class="HimTable-prev-btn page-item disabled"><span class="page-link"><span aria-hidden="true">‹</span><span class="visually-hidden">Previous</span></span></li><li class="page-item"><a class="page-link" role="button" tabindex="0" href="#">Page 1 of 1</a></li><li class="HimTable-next-btn page-item disabled"><span class="page-link"><span aria-hidden="true">›</span><span class="visually-hidden">Next</span></span></li><li class="page-item disabled"><span class="page-link"><span aria-hidden="true">»</span><span class="visually-hidden">Last</span></span></li></ul></div><div class="HimTable-row-options"><select class="HimTable-select form-select"><option value="" disabled="" class="HimTable-rows-per-page_number">Rows per page</option><option value="10" class="HimTable-rows-per-page">10</option><option value="20" class="HimTable-rows-per-page">20</option><option value="50" class="HimTable-rows-per-page">50</option></select></div></div></div></div></div></div></div></div></div></div></body></html>
