@@ -4,8 +4,11 @@ from pathlib import Path
 
 class Settings:
     def __init__(self, env: str = "dev"):
-        self.env = env
+        self.env = self._normalize_env(env)
         self.config = self._load_config()
+
+    def _normalize_env(self, env: str) -> str:
+        return env.strip().lower().replace("-", "_")
 
     def _load_config(self):
         config_path = Path("config/environments.yaml")

@@ -1,9 +1,7 @@
+# Supported environments:
+# dev, qa, hcs_dev, hcs_demo, san_prod, san_dev, hcs_cobl, hcs_internal, fiji, nmhs, usa, pallasai_test
+
 dev:
   base_url: "https://hcs-internal.imedx.com.au/"
   browser: "chromium"
   headless: false
-
-qa:
-  base_url: "https://hcs-internal.imedx.com.au/"
-  browser: "chromium"
-  headless: true

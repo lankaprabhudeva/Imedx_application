@@ -72,11 +72,8 @@ class ForReviewSendToAuditorPage(CodingCompletePage):
     def _open_my_actions_for_review(self) -> bool:
         for attempt in range(3):
             try:
-                button = self.page.locator(self.MY_ACTIONS_BUTTON).first
-                if button and button.is_visible():
-                    button.scroll_into_view_if_needed()
-                    button.click(force=True)
-                    self._safe_wait(700)
+                button = self._click_my_actions_button()
+                if button:
 
                     if self._select_for_review_action():
                         print('  [OK] My Actions review panel opened')
@@ -89,6 +86,100 @@ class ForReviewSendToAuditorPage(CodingCompletePage):
                 pass
 
             self._safe_wait(500)
+
+        return False
+
+    def _click_my_actions_button(self) -> bool:
+        try:
+            self.page.evaluate('window.scrollTo(0, 0)')
+            self._safe_wait(300)
+        except Exception:
+            pass
+
+        selectors = [
+            self.MY_ACTIONS_BUTTON,
+            'button:has(span[aria-label="My Actions"])',
+            'button:has-text("My Actions")',
+            'span[aria-label="My Actions"]',
+            'text=My Actions',
+        ]
+
+        for selector in selectors:
+            try:
+                items = self.page.locator(selector)
+                for index in range(items.count()):
+                    item = items.nth(index)
+                    if not item.is_visible():
+                        continue
+
+                    target = item
+                    try:
+                        if selector.startswith('span') or selector == 'text=My Actions':
+                            target = item.locator('xpath=ancestor::button[1]')
+                    except Exception:
+                        target = item
+
+                    target.scroll_into_view_if_needed()
+                    self._safe_wait(200)
+
+                    for click_attempt in range(3):
+                        try:
+                            if click_attempt == 0:
+                                target.click(force=True)
+                            elif click_attempt == 1:
+                                box = target.bounding_box(timeout=1000)
+                                if box:
+                                    self.page.mouse.click(
+                                        box['x'] + box['width'] / 2,
+                                        box['y'] + box['height'] / 2,
+                                    )
+                            else:
+                                target.evaluate(
+                                    """element => {
+                                        for (const eventName of [
+                                            'pointerdown', 'mousedown', 'pointerup', 'mouseup', 'click'
+                                        ]) {
+                                            element.dispatchEvent(new MouseEvent(eventName, {
+                                                bubbles: true,
+                                                cancelable: true,
+                                                view: window
+                                            }));
+                                        }
+                                        element.click();
+                                    }"""
+                                )
+                        except Exception:
+                            continue
+
+                        self._safe_wait(900)
+                        if self._my_actions_menu_opened():
+                            return True
+            except Exception:
+                continue
+
+        return False
+
+    def _my_actions_menu_opened(self) -> bool:
+        if self._review_panel_is_visible():
+            return True
+
+        selectors = [
+            '.dropdown-menu.show',
+            '[role="menu"]',
+            '.submenu-title:has-text("For Review")',
+            'a.dropdown-item:has-text("For Review")',
+            'text=View audit log',
+            'text=Sending for billing',
+        ]
+
+        for selector in selectors:
+            try:
+                items = self.page.locator(selector)
+                for index in range(items.count()):
+                    if items.nth(index).is_visible():
+                        return True
+            except Exception:
+                continue
 
         return False
 
@@ -594,88 +685,108 @@ if __name__ == '__main__':
                 fail_step('Login failed', e)
                 raise
 
-            print('Opening Code Workflow/Coder Workspace...')
-            try:
-                opened = nav.open_code_workflow() or nav.open_him_workspace()
-                if not opened:
-                    raise AssertionError('Could not open Code Workflow or HIM Workspace')
-                if not nav.open_coder_workspace():
-                    raise AssertionError('Could not open Coder Workspace')
-                print('  [OK] Coder Workspace opened')
-            except Exception as e:
-                fail_step('Navigation to Coder Workspace failed', e)
-                raise
+            def open_coder_workspace_from_base(reason: str):
+                print(reason)
+                try:
+                    page.goto(base_url, wait_until='domcontentloaded')
+                    try:
+                        page.wait_for_load_state('networkidle', timeout=5000)
+                    except Exception:
+                        pass
+                    opened = nav.open_code_workflow() or nav.open_him_workspace()
+                    if not opened:
+                        raise AssertionError('Could not open Code Workflow or HIM Workspace')
+                    if not nav.open_coder_workspace():
+                        raise AssertionError('Could not open Coder Workspace')
+                    print('  [OK] Coder Workspace opened')
+                except Exception as e:
+                    fail_step('Navigation to Coder Workspace failed', e)
+                    raise
 
-            print('Applying Outstanding Status filter...')
-            try:
-                if not review.apply_outstanding_filter():
-                    raise AssertionError('Outstanding Status filter was not applied')
-                print('  [OK] Outstanding Status filter applied')
-            except Exception as e:
-                fail_step('Applying Outstanding Status filter failed', e)
-                raise
+            def run_for_review_scenario(name: str, open_coding_panel):
+                print(f'\nStarting {name} For Review scenario...')
 
-            print('Opening first outstanding episode...')
-            try:
-                if not review.open_first_outstanding_episode():
-                    raise AssertionError('open_first_outstanding_episode returned False')
-                print('  [OK] Outstanding episode opened')
-            except Exception as e:
-                fail_step('Opening outstanding episode failed', e)
-                raise
+                print('Applying Outstanding Status filter...')
+                try:
+                    if not review.apply_outstanding_filter():
+                        raise AssertionError('Outstanding Status filter was not applied')
+                    print('  [OK] Outstanding Status filter applied')
+                except Exception as e:
+                    fail_step(f'Applying Outstanding Status filter failed for {name}', e)
+                    raise
 
-            print('Opening Code Assist...')
-            try:
-                if not review.open_code_assist():
-                    raise AssertionError('open_code_assist returned False')
-                review.close_popup_if_visible()
-                print('  [OK] Code Assist opened')
-            except Exception as e:
-                fail_step('Opening Code Assist failed', e)
-                raise
+                print('Opening first outstanding episode...')
+                try:
+                    if not review.open_first_outstanding_episode():
+                        raise AssertionError('open_first_outstanding_episode returned False')
+                    print('  [OK] Outstanding episode opened')
+                except Exception as e:
+                    fail_step(f'Opening outstanding episode failed for {name}', e)
+                    raise
 
-            print('Entering principal, additional diagnosis, and procedure codes...')
-            try:
-                if not review.enter_coding_codes(
-                    principal_code='Z51.1',
-                    additional_codes=[
-                        'M8010/3',
-                        'J18.2',
-                        'F44.4',
-                        'F99',
-                        'R10.4',
-                        'R68.8',
-                    ],
-                    procedure_codes=[
-                        '96199-00',
-                    ],
-                ):
-                    raise AssertionError('enter_coding_codes returned False')
-                print('  [OK] All requested diagnosis and procedure codes entered')
-            except Exception as e:
-                fail_step('Entering diagnosis/procedure codes failed', e)
-                raise
+                print(f'Opening {name}...')
+                try:
+                    if not open_coding_panel():
+                        raise AssertionError(f'Opening {name} returned False')
+                    review.close_popup_if_visible()
+                    print(f'  [OK] {name} opened')
+                except Exception as e:
+                    fail_step(f'Opening {name} failed', e)
+                    raise
 
-            print('Confirming DRG...')
-            try:
-                if not review.confirm_drg():
-                    raise AssertionError('confirm_drg returned False')
-                print('  [OK] DRG confirmed')
-            except Exception as e:
-                fail_step('Confirm DRG failed', e)
-                raise
+                print('Entering principal, additional diagnosis, and procedure codes...')
+                try:
+                    if not review.enter_coding_codes(
+                        principal_code='Z51.1',
+                        additional_codes=[
+                            'M8010/3',
+                            'J18.2',
+                            'F44.4',
+                            'F99',
+                            'R10.4',
+                            'R68.8',
+                        ],
+                        procedure_codes=[
+                            '96199-00',
+                        ],
+                    ):
+                        raise AssertionError('enter_coding_codes returned False')
+                    print('  [OK] All requested diagnosis and procedure codes entered')
+                except Exception as e:
+                    fail_step(f'Entering diagnosis/procedure codes failed for {name}', e)
+                    raise
 
-            print('Sending episode for review to auditor...')
-            try:
-                if not review.send_for_review_to_auditor(
-                    auditor_name='Prabhu',
-                    reason='Sai auditor sends this episode to PRABHU AUDITOR',
-                ):
-                    raise AssertionError('send_for_review_to_auditor returned False')
-                print('  [OK] Send for review completed')
-            except Exception as e:
-                fail_step('Send for review failed', e)
-                raise
+                print('Confirming DRG...')
+                try:
+                    if not review.confirm_drg():
+                        raise AssertionError('confirm_drg returned False')
+                    review.wait_for_coding_complete_ready()
+                    print('  [OK] DRG confirmed')
+                except Exception as e:
+                    fail_step(f'Confirm DRG failed for {name}', e)
+                    raise
+
+                print('Sending episode for review to auditor...')
+                try:
+                    if not review.send_for_review_to_auditor(
+                        auditor_name='Prabhu',
+                        reason='Sai auditor sends this episode to PRABHU AUDITOR',
+                    ):
+                        raise AssertionError('send_for_review_to_auditor returned False')
+                    print('  [OK] Send for review completed')
+                except Exception as e:
+                    fail_step(f'Send for review failed for {name}', e)
+                    raise
+
+                print(f'  [OK] {name} For Review scenario completed')
+
+            open_coder_workspace_from_base('Opening Code Workflow/Coder Workspace...')
+            run_for_review_scenario('Code Assist', review.open_code_assist)
+
+            open_coder_workspace_from_base(
+                '\nReopening Code Workflow/Coder Workspace after Code Assist review completion...'
+            )
+            run_for_review_scenario('Code Accelerate', review.open_code_accelerate_panel)
 
             print('\nFor Review Send to Auditor run finished')
         except Exception:

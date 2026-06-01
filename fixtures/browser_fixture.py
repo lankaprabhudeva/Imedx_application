@@ -15,13 +15,18 @@ def app_settings():
     if headless_env is not None:
         settings._headless_override = headless_env.lower() in ("1", "true", "yes")
 
+    # Optional browser override (chromium/firefox/webkit)
+    browser_env = os.getenv("BROWSER")
+    if browser_env:
+        settings._browser_override = browser_env.strip().lower()
+
     return settings
 
 
 @pytest.fixture(scope="function")
 def page(app_settings):
     with sync_playwright() as playwright:
-        browser_name = app_settings.browser
+        browser_name = getattr(app_settings, "_browser_override", app_settings.browser)
         browser_type = getattr(playwright, browser_name)
 
         # Prefer explicit override if provided

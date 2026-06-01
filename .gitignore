@@ -39,3 +39,11 @@ htmlcov/
 .env.*
 *.pem
 .DS_Store
+
+# Generated Playwright/report artifacts
+reports/e2e/
+
+tmp_coder_workspace_dom_debug.html
+tmp_coder_workspace_dom_debug.png
+test_output.log
+workflow_failure.png

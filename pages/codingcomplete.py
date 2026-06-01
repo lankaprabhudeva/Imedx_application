@@ -322,16 +322,82 @@ class CodingCompletePage(BasePage):
                     row = rows.first
                     if row and row.is_visible():
                         self.completed_episode_identifier = self._get_episode_identifier_from_row(row)
-                        row.scroll_into_view_if_needed()
-                        row.dblclick()
-                        self.page.wait_for_load_state('networkidle')
-                        print(
-                            '  [OK] Opened first Outstanding episode '
-                            f'{self.completed_episode_identifier} using selector: {selector}'
-                        )
-                        return True
+                        if self._open_episode_row(row):
+                            print(
+                                '  [OK] Opened first Outstanding episode '
+                                f'{self.completed_episode_identifier} using selector: {selector}'
+                            )
+                            return True
             except Exception as e:
                 print(f'  ! Outstanding selector {selector} failed: {e}')
+
+        return False
+
+    def _open_episode_row(self, row) -> bool:
+        """Open a row and verify the episode/module chooser is actually visible."""
+        before_url = self.page.url
+        click_targets = [
+            row.locator('td').nth(1),
+            row.locator('td').first,
+            row,
+        ]
+
+        for target in click_targets:
+            try:
+                if target.count() == 0 or not target.is_visible():
+                    continue
+
+                target.scroll_into_view_if_needed()
+                target.dblclick(force=True)
+                if self._wait_for_episode_context(before_url):
+                    return True
+            except Exception:
+                pass
+
+            try:
+                target.click(force=True)
+                self._safe_wait(200)
+                target.press('Enter')
+                if self._wait_for_episode_context(before_url):
+                    return True
+            except Exception:
+                pass
+
+        print('  ! Outstanding episode row did not open after click')
+        return False
+
+    def _wait_for_episode_context(self, before_url: str, timeout: int = 10000) -> bool:
+        """Wait until the grid click opens an episode detail or coding-module chooser."""
+        start = time.time()
+        selectors = [
+            '.modal button:has-text("Code Assist")',
+            '.modal button:has-text("Code Accelerate")',
+            '[role="dialog"] button:has-text("Code Assist")',
+            '[role="dialog"] button:has-text("Code Accelerate")',
+            'div:has-text("Kindly select your desired coding module") button:has-text("Code Assist")',
+            'div:has-text("Kindly select your desired coding module") button:has-text("Code Accelerate")',
+            self.PRINCIPAL_INPUT,
+            self.CONFIRM_DRG_BUTTON,
+        ]
+
+        while time.time() - start < timeout / 1000:
+            try:
+                self.wait_for_loading_overlay(1000)
+            except Exception:
+                pass
+
+            for selector in selectors:
+                try:
+                    item = self.page.locator(selector).first
+                    if item and item.is_visible():
+                        return True
+                except Exception:
+                    continue
+
+            if self.page.url != before_url:
+                return True
+
+            self._safe_wait(300)
 
         return False
 
@@ -358,10 +424,14 @@ class CodingCompletePage(BasePage):
     def open_code_assist(self) -> bool:
         self.wait_for_loading_overlay(8000)
 
+        if self._coding_panel_is_ready('Code Assist'):
+            return True
+
         candidates = [
-            self.CODE_ASSIST_BUTTON,
-            self.CODE_ASSIST_ICON,
-            'text=Code Assist',
+            '.modal button:has-text("Code Assist")',
+            '[role="dialog"] button:has-text("Code Assist")',
+            'button:has-text("Code Assist")',
+            '[aria-label="Code Assist"]',
             'button:has-text("Open Code Assist")',
             'a:has-text("Code Assist")',
             'role=button[name="Code Assist"]',
@@ -375,19 +445,96 @@ class CodingCompletePage(BasePage):
 
                     self._safe_wait(800)
 
-                    try:
-                        self.page.wait_for_selector(self.PRINCIPAL_INPUT, timeout=3000)
+                    if self._coding_panel_is_ready('Code Assist'):
                         return True
-                    except Exception:
-                        try:
-                            self.page.wait_for_selector(self.CONFIRM_DRG_BUTTON, timeout=3000)
-                            return True
-                        except Exception:
-                            self.close_popup_if_visible()
+
+                    self.close_popup_if_visible()
                 except Exception:
                     continue
 
             self._safe_wait(500)
+
+        return False
+
+    def open_code_accelerate_panel(self) -> bool:
+        """Select Code Accelerate from the coding-module popup after opening an episode."""
+        self.wait_for_loading_overlay(8000)
+
+        if self._coding_panel_is_ready('Code Accelerate'):
+            return True
+
+        candidates = [
+            '.modal button:has-text("Code Accelerate")',
+            '[role="dialog"] button:has-text("Code Accelerate")',
+            'div:has-text("Kindly select your desired coding module") button:has-text("Code Accelerate")',
+            'button:has-text("Code Accelerate")',
+            '[aria-label="Code Accelerate"]',
+            'role=button[name="Code Accelerate"]',
+        ]
+
+        for attempt in range(3):
+            for selector in candidates:
+                try:
+                    if not self._click_locator(selector):
+                        continue
+
+                    self._safe_wait(800)
+
+                    if self._coding_panel_is_ready('Code Accelerate'):
+                        return True
+
+                    self.close_popup_if_visible()
+                except Exception:
+                    continue
+
+            self._safe_wait(500)
+
+        return False
+
+    def _coding_panel_is_ready(self, module_name: str | None = None, timeout: int = 3000) -> bool:
+        """Detect the coding workspace even when code-entry rows are not input elements."""
+        end_time = time.time() + timeout / 1000
+        module_selectors = []
+        if module_name:
+            module_selectors = [
+                f'.episode-header:has-text("{module_name}")',
+                f'p:has-text("{module_name}")',
+                f'nav:has-text("{module_name}")',
+                f'text={module_name}',
+            ]
+
+        coding_surface_selectors = [
+            self.PRINCIPAL_INPUT,
+            self.CONFIRM_DRG_BUTTON,
+            'text=Principal diagnosis',
+            'text=Additional diagnoses',
+            'text=Procedure codes',
+            'text=Type code or drag and drop from Codebook',
+        ]
+
+        while time.time() < end_time:
+            module_visible = True
+            if module_selectors:
+                module_visible = False
+                for selector in module_selectors:
+                    try:
+                        item = self.page.locator(selector).first
+                        if item and item.is_visible():
+                            module_visible = True
+                            break
+                    except Exception:
+                        continue
+
+            if module_visible:
+                for selector in coding_surface_selectors:
+                    try:
+                        item = self.page.locator(selector).first
+                        if item and item.is_visible():
+                            return True
+                    except Exception:
+                        continue
+
+            self._safe_wait(250)
 
         return False
 
@@ -751,88 +898,110 @@ if __name__ == '__main__':
                 fail_step('Login failed', e)
                 raise
 
-            print('Opening Code Workflow/Coder Workspace...')
-            try:
-                opened = nav.open_code_workflow() or nav.open_him_workspace()
-                if not opened:
-                    raise AssertionError('Could not open Code Workflow or HIM Workspace')
-                if not nav.open_coder_workspace():
-                    raise AssertionError('Could not open Coder Workspace')
-                print('  [OK] Coder Workspace opened')
-            except Exception as e:
-                fail_step('Navigation to Coder Workspace failed', e)
-                raise
+            def open_coder_workspace_from_base(reason: str):
+                print(reason)
+                try:
+                    page.goto(base_url, wait_until='domcontentloaded')
+                    try:
+                        page.wait_for_load_state('networkidle', timeout=5000)
+                    except Exception:
+                        pass
+                    opened = nav.open_code_workflow() or nav.open_him_workspace()
+                    if not opened:
+                        raise AssertionError('Could not open Code Workflow or HIM Workspace')
+                    if not nav.open_coder_workspace():
+                        raise AssertionError('Could not open Coder Workspace')
+                    print('  [OK] Coder Workspace opened')
+                except Exception as e:
+                    fail_step('Navigation to Coder Workspace failed', e)
+                    raise
 
-            print('Applying Outstanding Status filter...')
-            try:
-                if not coding.apply_outstanding_filter():
-                    raise AssertionError(
-                        'Outstanding Status filter was not applied. '
-                        'Stopping to avoid opening an unfiltered or wrong-status episode.'
-                    )
-                print('  [OK] Outstanding Status filter applied')
-            except Exception as e:
-                fail_step('Applying Outstanding Status filter failed', e)
-                raise
+            open_coder_workspace_from_base('Opening Code Workflow/Coder Workspace...')
 
-            print('Opening first outstanding episode...')
-            try:
-                if not coding.open_first_outstanding_episode():
-                    raise AssertionError('open_first_outstanding_episode returned False')
-                print('  [OK] Outstanding episode opened')
-            except Exception as e:
-                fail_step('Opening outstanding episode failed', e)
-                raise
+            def run_coding_scenario(name: str, open_coding_panel=None):
+                print(f'\nStarting {name} scenario...')
 
-            print('Opening Code Assist...')
-            try:
-                if not coding.open_code_assist():
-                    raise AssertionError('open_code_assist returned False')
-                coding.close_popup_if_visible()
-                print('  [OK] Code Assist opened')
-            except Exception as e:
-                fail_step('Opening Code Assist failed', e)
-                raise
+                print('Applying Outstanding Status filter...')
+                try:
+                    if not coding.apply_outstanding_filter():
+                        raise AssertionError(
+                            'Outstanding Status filter was not applied. '
+                            'Stopping to avoid opening an unfiltered or wrong-status episode.'
+                        )
+                    print('  [OK] Outstanding Status filter applied')
+                except Exception as e:
+                    fail_step(f'Applying Outstanding Status filter failed for {name}', e)
+                    raise
 
-            print('Entering principal, additional diagnosis, and procedure codes...')
-            try:
-                if not coding.enter_coding_codes(
-                    principal_code='Z51.1',
-                    additional_codes=[
-                        'M8010/3',
-                        'J18.2',
-                        'F44.4',
-                        'F99',
-                        'R10.4',
-                        'R68.8',
-                    ],
-                    procedure_codes=[
-                        '96199-00',
-                    ],
-                ):
-                    raise AssertionError('enter_coding_codes returned False')
-                print('  [OK] All requested diagnosis and procedure codes entered')
-            except Exception as e:
-                fail_step('Entering diagnosis/procedure codes failed', e)
-                raise
+                print('Opening first outstanding episode...')
+                try:
+                    if not coding.open_first_outstanding_episode():
+                        raise AssertionError('open_first_outstanding_episode returned False')
+                    print('  [OK] Outstanding episode opened')
+                except Exception as e:
+                    fail_step(f'Opening outstanding episode failed for {name}', e)
+                    raise
 
-            print('Confirming DRG...')
-            try:
-                if not coding.confirm_drg():
-                    raise AssertionError('confirm_drg returned False')
-                print('  [OK] DRG confirmed')
-            except Exception as e:
-                fail_step('Confirm DRG failed', e)
-                raise
+                if open_coding_panel:
+                    print(f'Opening {name} coding panel...')
+                    try:
+                        if not open_coding_panel():
+                            raise AssertionError(f'Opening {name} coding panel returned False')
+                        coding.close_popup_if_visible()
+                        print(f'  [OK] {name} coding panel opened')
+                    except Exception as e:
+                        fail_step(f'Opening {name} coding panel failed', e)
+                        raise
 
-            print('Clicking Coding Complete...')
-            try:
-                if not coding.complete_coding():
-                    raise AssertionError('complete_coding returned False')
-                print('  [OK] Coding Complete clicked')
-            except Exception as e:
-                fail_step('Clicking Coding Complete failed', e)
-                raise
+                print('Entering principal, additional diagnosis, and procedure codes...')
+                try:
+                    if not coding.enter_coding_codes(
+                        principal_code='Z51.1',
+                        additional_codes=[
+                            'M8010/3',
+                            'J18.2',
+                            'F44.4',
+                            'F99',
+                            'R10.4',
+                            'R68.8',
+                        ],
+                        procedure_codes=[
+                            '96199-00',
+                        ],
+                    ):
+                        raise AssertionError('enter_coding_codes returned False')
+                    print('  [OK] All requested diagnosis and procedure codes entered')
+                except Exception as e:
+                    fail_step(f'Entering diagnosis/procedure codes failed for {name}', e)
+                    raise
+
+                print('Confirming DRG...')
+                try:
+                    if not coding.confirm_drg():
+                        raise AssertionError('confirm_drg returned False')
+                    print('  [OK] DRG confirmed')
+                except Exception as e:
+                    fail_step(f'Confirm DRG failed for {name}', e)
+                    raise
+
+                print('Clicking Coding Complete...')
+                try:
+                    if not coding.complete_coding():
+                        raise AssertionError('complete_coding returned False')
+                    print('  [OK] Coding Complete clicked')
+                except Exception as e:
+                    fail_step(f'Clicking Coding Complete failed for {name}', e)
+                    raise
+
+                print(f'  [OK] {name} scenario completed')
+
+            run_coding_scenario('Code Assist', coding.open_code_assist)
+
+            open_coder_workspace_from_base(
+                '\nReopening Code Workflow/Coder Workspace after Code Assist completion...'
+            )
+
+            run_coding_scenario('Code Accelerate', coding.open_code_accelerate_panel)
 
             print('\nDemo run finished')
         except Exception:

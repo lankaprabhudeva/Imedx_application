@@ -19,9 +19,51 @@ playwright install
 
 ## Run Tests
 
+Run the default environment:
+
 ```bash
 pytest
 ```
+
+Run a specific environment using the `ENV` variable:
+
+```bash
+ENV=hcs_demo pytest
+```
+
+On Windows PowerShell:
+
+```powershell
+$env:ENV = "hcs_demo"
+pytest
+```
+
+Or use the helper script:
+
+```bash
+python scripts/run_environment_tests.py --env hcs_demo
+```
+
+Run all environments from `config/environments.yaml`:
+
+```bash
+python scripts/run_environment_tests.py --all
+```
+
+Supported environment keys:
+
+- `dev`
+- `qa`
+- `hcs_dev`
+- `hcs_demo`
+- `san_prod`
+- `san_dev`
+- `hcs_cobl`
+- `hcs_internal`
+- `fiji`
+- `nmhs`
+- `usa`
+- `pallasai_test`
 
 Run generated tests only:
 
